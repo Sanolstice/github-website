@@ -1,0 +1,118 @@
+[
+  {
+    "term": "澩澩",
+    "pronunciation": "ha̍unnh-ha̍unnh",
+    "definition": "指吃不熟的芋頭、蘿蔔等的口感。",
+    "sourceUrl": "https://sutian.moe.edu.tw/zh-hant/su/12221/",
+    "sensoryTags": [
+      "口感",
+      "觸感"
+    ],
+    "fieldNote": "像牙齒先碰到一點生硬，嘴巴還沒準備好，食物就停在那裡。",
+    "status": "checked"
+  },
+  {
+    "term": "𩚨嗲嗲",
+    "pronunciation": "khiū-teh-teh",
+    "definition": "形容食物軟而有彈性，嚼勁很夠。",
+    "sourceUrl": "https://sutian.moe.edu.tw/zh-hant/su/13552/",
+    "sensoryTags": [
+      "口感"
+    ],
+    "fieldNote": "咬下去不是脆，也不是爛，是會慢慢彈回來的那種軟。",
+    "status": "checked"
+  },
+  {
+    "term": "沙沙",
+    "pronunciation": "sua-sua",
+    "definition": "形容吃入口中有嚼沙、酥脆的粉末感覺；也形容觸摸灰塵的感覺。",
+    "sourceUrl": "https://sutian.moe.edu.tw/zh-hant/su/3299/",
+    "sensoryTags": [
+      "口感",
+      "觸感"
+    ],
+    "fieldNote": "像手指摸過窗台，或餅乾碎掉後留在舌頭上的細粉。",
+    "status": "checked"
+  },
+  {
+    "term": "𠕇硞硞",
+    "pronunciation": "tīng-khok-khok",
+    "definition": "形容堅硬、強硬。",
+    "sourceUrl": "https://sutian.moe.edu.tw/zh-hant/su/13569/",
+    "sensoryTags": [
+      "觸感"
+    ],
+    "fieldNote": "像曬太久的木板，敲起來乾乾硬硬。",
+    "status": "checked"
+  },
+  {
+    "term": "密喌喌",
+    "pronunciation": "ba̍t-tsiuh-tsiuh",
+    "definition": "緊緊的。形容非常緊密，沒有空隙。",
+    "sourceUrl": "https://sutian.moe.edu.tw/zh-hant/su/7165/",
+    "sensoryTags": [
+      "空間",
+      "觸感"
+    ],
+    "fieldNote": "夏天市場裡的人群，肩膀和肩膀幾乎貼在一起。",
+    "status": "checked"
+  },
+  {
+    "term": "薄縭絲",
+    "pronunciation": "po̍h-li-si",
+    "definition": "形容東西厚度很薄或是分量很少。",
+    "sourceUrl": "https://sutian.moe.edu.tw/zh-hant/su/12340/",
+    "sensoryTags": [
+      "觸感",
+      "視覺"
+    ],
+    "fieldNote": "像快被風吹走的塑膠袋，只剩薄薄一層。",
+    "status": "checked"
+  },
+  {
+    "term": "暗摸摸",
+    "pronunciation": "àm-bong-bong",
+    "definition": "形容光線不明亮、陰暗漆黑的樣子。",
+    "sourceUrl": "https://sutian.moe.edu.tw/zh-hant/su/27376/",
+    "sensoryTags": [
+      "光線"
+    ],
+    "fieldNote": "停電後的客廳，只剩窗外一點點路燈。",
+    "status": "checked"
+  },
+  {
+    "term": "紅記記",
+    "pronunciation": "âng-kì-kì",
+    "definition": "紅彤彤。形容顏色極紅。",
+    "sourceUrl": "https://sutian.moe.edu.tw/zh-hant/su/5410/",
+    "sensoryTags": [
+      "顏色"
+    ],
+    "fieldNote": "西瓜切開的那一瞬間，紅得像夏天直接露出來。",
+    "status": "checked"
+  },
+  {
+    "term": "花彔彔",
+    "pronunciation": "hue-lok-lok",
+    "definition": "顏色、花樣多而雜亂；形容事物雜亂無章。",
+    "sourceUrl": "https://sutian.moe.edu.tw/zh-hant/su/18500/",
+    "sensoryTags": [
+      "顏色",
+      "場所"
+    ],
+    "fieldNote": "雜貨店門口掛滿塑膠桶與衣架，看起來亂亂卻很熱鬧。",
+    "status": "checked"
+  },
+  {
+    "term": "青蘢蘢",
+    "pronunciation": "tshenn-lìng-lìng / tshinn-lìng-lìng",
+    "definition": "形容草木蒼翠欲滴的樣子。",
+    "sourceUrl": "https://sutian.moe.edu.tw/zh-hant/su/27575/",
+    "sensoryTags": [
+      "顏色",
+      "自然"
+    ],
+    "fieldNote": "下過雨後的山邊，綠得像會滴水。",
+    "status": "checked"
+  }
+]

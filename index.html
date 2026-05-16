@@ -1,20 +1,115 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的第一個網站</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="台語感官田調 archive，收集詞彙、聲音、氣味、光線與生活記憶。"
+    />
+    <title>台語感官田調 archive</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="回到首頁">
+        <span class="brand-mark">田</span>
+        <span>台語感官田調</span>
+      </a>
 
-  <link rel="stylesheet" href="style.css">
-</head>
+      <button class="nav-toggle" type="button" aria-label="開啟選單" aria-expanded="false" data-nav-toggle>
+        <span></span>
+        <span></span>
+      </button>
 
-<body>
+      <nav class="site-nav" aria-label="主要導覽" data-nav>
+        <a href="#notes">Field Notes</a>
+        <a href="#about">About</a>
+        <a href="#developing">Developing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-  <h1>我的第一個網站</h1>
+    <main id="top">
+      <section class="hero magazine-cover" aria-labelledby="hero-title">
+        <figure class="hero-cover" aria-label="台灣街景插畫主視覺">
+          <img src="assets/taiwan-street-illustration.png" alt="清亮天空下的台灣街景插畫，橫向排列老公寓、陽台、鐵窗花、磁磚外牆、植栽、冷氣機、曬衣架與水塔。" />
+          <figcaption>
+            street cover: sky / balcony / tile / plants / afternoon
+          </figcaption>
+        </figure>
 
-  <p>網站成功運作中。</p>
+        <div class="hero-copy-panel" data-collage-label="local magazine note">
+          <p class="issue-label">taiwan sensory archive / no. 00</p>
+          <h1 id="hero-title">有些詞，離開生活後，就慢慢沒人講了。</h1>
+          <p class="hero-copy">
+            這裡先不急著成為一本書。它是一份正在長大的田調筆記，收集台語詞彙、生活聲音、氣味、光線，以及小孩感受世界的方式。
+          </p>
+          <div class="sensory-strip" aria-label="感官標籤">
+            <span>聲音</span>
+            <span>光線</span>
+            <span>觸感</span>
+            <span>場所</span>
+          </div>
+        </div>
+      </section>
 
-  <script src="script.js"></script>
+      <section class="section notes" id="notes" aria-labelledby="notes-title">
+        <div class="section-heading editorial-heading">
+          <p class="kicker">Field Notes</p>
+          <h2 id="notes-title">像把詞夾在相紙背面，等下一次想起來。</h2>
+          <div class="notes-actions">
+            <p class="section-note">data source: <code>data/field-notes.json</code> / 每次抽出 5 張田調卡</p>
+            <button class="shuffle-button" type="button" data-shuffle-notes>換一組詞</button>
+          </div>
+        </div>
 
-</body>
+        <div class="notes-grid" data-notes-grid aria-live="polite">
+          <p class="empty-note">正在讀取田調素材。</p>
+        </div>
+      </section>
+
+      <section class="section about" id="about" aria-labelledby="about-title">
+        <div class="section-heading offset-heading">
+          <p class="kicker">About</p>
+          <h2 id="about-title">不是先教語言。</h2>
+          <p class="section-note">note: 有些東西要先靠近生活，才會想起它怎麼被說出口。</p>
+        </div>
+
+        <div class="text-block">
+          <p>
+            這是一個台語感官田調前期的內容池。
+            有些東西還很小，只是一個詞、一個聲音、午後一塊光。
+          </p>
+          <p>
+            重點不是把語言整理成課本。
+            而是從生活重新靠近語言。
+          </p>
+        </div>
+      </section>
+
+      <section class="section developing" id="developing" aria-labelledby="developing-title">
+        <div class="section-heading">
+          <p class="kicker">Developing</p>
+          <h2 id="developing-title">慢慢長成別的樣子。</h2>
+          <p class="section-note">未定稿。像桌上的紙，先一張一張疊著。</p>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact-note">
+          <p class="kicker">Contact</p>
+          <h2 id="contact-title">如果你也有一個快被忘記的詞，</h2>
+          <p>可以先把它記下來。</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>正在長大的田調筆記</p>
+      <a href="#top">回到上面</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
