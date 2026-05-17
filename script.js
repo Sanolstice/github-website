@@ -5,7 +5,8 @@ const sections = [...document.querySelectorAll("main section[id]")];
 const notesGrid = document.querySelector("[data-notes-grid]");
 const shuffleButton = document.querySelector("[data-shuffle-notes]");
 
-const dataPath = "data/field-notes.json";
+const dataDirectory = "data/field-notes";
+const dataIndexPath = `${dataDirectory}/index.json`;
 const notesPerDraw = 5;
 let allFieldNotes = [];
 let drawPool = [];
@@ -17,12 +18,72 @@ const createTextElement = (tagName, className, text) => {
   return element;
 };
 
-const normalizeNotes = (payload) => {
+const normalizeText = (value, fallback = "未提供") => {
+  if (typeof value === "string" && value.trim()) return value.trim();
+  if (typeof value === "number") return String(value);
+  return fallback;
+};
+
+const normalizeTags = (value) => {
+  if (Array.isArray(value)) {
+    const tags = value.map((tag) => normalizeText(tag, "")).filter(Boolean);
+    return tags.length ? tags : ["未分類"];
+  }
+
+  if (typeof value === "string" && value.trim()) {
+    return value
+      .split(/[,，、/]/)
+      .map((tag) => tag.trim())
+      .filter(Boolean);
+  }
+
+  return ["未分類"];
+};
+
+const normalizeSourceUrl = (note) => {
+  const sourceValue = getNoteValue(note, ["sourceUrl", "sourceURL", "url", "link"]);
+  if (sourceValue) return normalizeText(sourceValue, "");
+
+  const source = note?.source;
+  if (typeof source === "string" && /^(https?:)?\/\//.test(source)) return source;
+  if (source?.url) return normalizeText(source.url, "");
+  if (source?.href) return normalizeText(source.href, "");
+
+  const dictionaryLinks = note?.字典連結;
+  if (dictionaryLinks?.教育部臺灣台語常用詞辭典) {
+    return normalizeText(dictionaryLinks.教育部臺灣台語常用詞辭典, "");
+  }
+  if (dictionaryLinks?.教育部) return normalizeText(dictionaryLinks.教育部, "");
+
+  return "";
+};
+
+const normalizeFieldNote = (note) => {
+  const fieldNote = getNoteValue(note, ["fieldNote", "field_note", "note", "memo", "observation", "description", "田調筆記"]);
+  return normalizeText(fieldNote, "還沒有田調筆記，先把這個詞留在口袋裡。");
+};
+
+const normalizeNote = (note = {}) => ({
+  term: normalizeText(getNoteValue(note, ["term", "word", "title", "name", "詞", "詞目"])),
+  pronunciation: normalizeText(getNoteValue(note, ["pronunciation", "reading", "romanization", "pinyin", "音讀", "台羅"]), "音讀未提供"),
+  definition: normalizeText(getNoteValue(note, ["definition", "meaning", "description", "explanation", "釋義"])?.本義 || getNoteValue(note, ["definition", "meaning", "description", "explanation", "釋義"]), "釋義未提供"),
+  fieldNote: normalizeFieldNote(note),
+  sensoryTags: normalizeTags(note?.sensoryTags || getNoteValue(note, ["tags", "sensoryCategory", "category", "分類"]) || note?.社群來源?.管道),
+  sourceUrl: normalizeSourceUrl(note),
+});
+
+const getNotesFromPayload = (payload) => {
   if (Array.isArray(payload)) return payload;
+  if (Array.isArray(payload?.entries)) return payload.entries;
   if (Array.isArray(payload?.notes)) return payload.notes;
   if (Array.isArray(payload?.fieldNotes)) return payload.fieldNotes;
+  if (Array.isArray(payload?.items)) return payload.items;
+  if (Array.isArray(payload?.data)) return payload.data;
+  if (Array.isArray(payload?.records)) return payload.records;
   return [];
 };
+
+const normalizeNotes = (payload) => getNotesFromPayload(payload).map(normalizeNote);
 
 const getNoteValue = (note, keys) => {
   for (const key of keys) {
@@ -145,6 +206,53 @@ const illustrationTemplates = {
     <path class="bag-line" d="M105 58c6 9 34 9 40 0M105 82c16 10 31 10 47 0M99 114c17 8 38 8 57 0"></path>
     <path class="wind" d="M43 73c21-10 39-8 55 3M37 103c30-12 54-9 72 6M157 67c23-13 42-12 57 2"></path>
   `),
+  日花: svgShell("窗邊碎光與竹椅插圖", `
+    <rect class="window" x="43" y="35" width="70" height="76"></rect>
+    <path class="window-line" d="M78 35v76M43 73h70"></path>
+    <path class="lamp-glow" d="M55 120c18-18 43-28 75-32M84 133c21-17 50-27 88-31"></path>
+    <rect class="chair" x="139" y="79" width="56" height="48"></rect>
+    <path class="wood-line" d="M148 90h39M147 104h42M151 118h33"></path>
+    <path class="crumbs" d="M122 112h2M133 103h2M157 94h2M176 111h2M194 99h2M108 130h2M151 133h2"></path>
+  `),
+  凊彩: svgShell("鍋子醬油蒜頭與鹽插圖", `
+    <ellipse class="shadow" cx="132" cy="137" rx="78" ry="10"></ellipse>
+    <path class="bowl" d="M60 84h96c-6 34-24 52-49 52-27 0-43-18-47-52z"></path>
+    <path class="bowl-rim" d="M55 83c10-13 95-13 107 0-15 13-91 13-107 0z"></path>
+    <path class="steam" d="M83 61c-6-8 7-12 2-22M111 58c-6-8 8-13 2-23M137 62c-6-8 7-12 2-21"></path>
+    <rect class="bucket red" x="176" y="46" width="20" height="58" rx="4"></rect>
+    <path class="dust" d="M186 104c-12 10-28 15-48 16"></path>
+    <path class="root root-a" d="M174 122c8-10 23-8 29 2-7 12-25 12-29-2z"></path>
+    <path class="crumbs" d="M61 127h2M70 133h2M203 118h2M213 125h2M219 132h2"></path>
+  `),
+  軟晡: svgShell("傍晚門口木椅與斜光插圖", `
+    <ellipse class="shadow" cx="132" cy="139" rx="82" ry="10"></ellipse>
+    <rect class="room" x="44" y="41" width="70" height="86"></rect>
+    <path class="lamp-glow" d="M111 57c35 18 66 37 94 66M102 79c31 14 58 31 81 52"></path>
+    <rect class="chair" x="74" y="86" width="57" height="43"></rect>
+    <path class="wood-line" d="M84 96h38M83 110h40M91 128v18M119 128v18"></path>
+    <circle class="person c" cx="185" cy="105" r="17"></circle>
+    <path class="shoulders" d="M166 130c8-21 38-21 47 0"></path>
+  `),
+  "日頭赤焱焱，隨人顧性命": svgShell("正午公車站與電扇插圖", `
+    <circle class="lamp" cx="70" cy="55" r="22"></circle>
+    <path class="hit-lines" d="M70 20v16M70 74v16M35 55h16M89 55h16M47 32l11 12M93 32L82 44"></path>
+    <rect class="stall" x="42" y="91" width="64" height="39"></rect>
+    <path class="sign-line" d="M58 80h33M74 91v39"></path>
+    <circle class="lamp" cx="175" cy="92" r="28"></circle>
+    <path class="wind" d="M175 64v56M147 92h56M156 73l39 39M195 73l-39 39"></path>
+    <path class="plate" d="M142 132h66"></path>
+    <path class="lamp-glow" d="M43 140c51-9 107-9 169 0"></path>
+  `),
+  "日頭赤焱焱": svgShell("正午公車站與電扇插圖", `
+    <circle class="lamp" cx="70" cy="55" r="22"></circle>
+    <path class="hit-lines" d="M70 20v16M70 74v16M35 55h16M89 55h16M47 32l11 12M93 32L82 44"></path>
+    <rect class="stall" x="42" y="91" width="64" height="39"></rect>
+    <path class="sign-line" d="M58 80h33M74 91v39"></path>
+    <circle class="lamp" cx="175" cy="92" r="28"></circle>
+    <path class="wind" d="M175 64v56M147 92h56M156 73l39 39M195 73l-39 39"></path>
+    <path class="plate" d="M142 132h66"></path>
+    <path class="lamp-glow" d="M43 140c51-9 107-9 169 0"></path>
+  `),
   暗摸摸: svgShell("暗客廳與窗外路燈插圖", `
     <rect class="room" x="45" y="34" width="168" height="102"></rect>
     <rect class="dark-window" x="71" y="49" width="58" height="61"></rect>
@@ -258,19 +366,60 @@ const renderRandomNotes = () => {
   renderFieldNotes(drawRandomNotes());
 };
 
+const normalizeDataPaths = (payload) => {
+  const files = Array.isArray(payload) ? payload : payload?.files;
+  if (!Array.isArray(files)) return [];
+
+  return files
+    .map((file) => {
+      const path = typeof file === "string" ? file : file?.path || file?.file || file?.url;
+      if (!path) return "";
+      if (/^(https?:)?\/\//.test(path) || path.startsWith("/")) return path;
+      return `${dataDirectory}/${path}`;
+    })
+    .filter(Boolean);
+};
+
+const loadDataIndex = async () => {
+  const response = await fetch(dataIndexPath, { cache: "no-store" });
+  if (!response.ok) throw new Error(`Unable to load ${dataIndexPath}`);
+
+  const payload = await response.json();
+  return normalizeDataPaths(payload);
+};
+
+const loadJsonFile = async (path) => {
+  try {
+    const response = await fetch(path, { cache: "no-store" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const payload = await response.json();
+    return normalizeNotes(payload);
+  } catch (error) {
+    console.warn(`無法讀取資料檔：${path}`, error);
+    return [];
+  }
+};
+
 const loadFieldNotes = async () => {
   renderEmptyState("正在讀取田調素材。");
 
   try {
-    const response = await fetch(dataPath, { cache: "no-store" });
-    if (!response.ok) throw new Error(`Unable to load ${dataPath}`);
+    const dataPaths = await loadDataIndex();
+    if (!dataPaths.length) throw new Error(`No JSON files listed in ${dataIndexPath}`);
 
-    const payload = await response.json();
-    allFieldNotes = normalizeNotes(payload);
+    const loadedNotes = [];
+    for (const path of dataPaths) {
+      const notes = await loadJsonFile(path);
+      loadedNotes.push(...notes);
+    }
+
+    allFieldNotes = loadedNotes;
     drawPool = shuffle(allFieldNotes);
     renderRandomNotes();
   } catch (error) {
-    renderEmptyState("尚未讀取到 data/field-notes.json。請用 localhost 預覽，或確認資料檔已放在 data 資料夾。");
+    console.warn("田調素材清單讀取失敗。", error);
+    renderEmptyState("尚未讀取到 data/field-notes/index.json。請用 localhost 預覽，或確認資料檔已放在 data/field-notes 資料夾。");
   }
 };
 

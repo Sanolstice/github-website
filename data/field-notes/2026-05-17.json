@@ -1,0 +1,63 @@
+{
+  "date": "2026-05-17",
+  "entries": [
+    {
+      "id": "2026-05-17-100000",
+      "詞目": "軟晡",
+      "台羅": "nńg-poo",
+      "字典是否收錄": {
+        "教育部": true,
+        "iTaigi": "待驗證",
+        "台日大辭典": "待驗證"
+      },
+      "釋義": {
+        "本義": "傍晚陽光轉弱的時候。",
+        "備註": "iTaigi 與台日大辭典待驗證。"
+      },
+      "例句": [
+        "Tán nńg-poo tsiah lâi-khì bé kué-tsí.(等軟晡才來去買果子。)"
+      ],
+      "字典連結": {
+        "教育部臺灣台語常用詞辭典": "https://sutian.moe.edu.tw/zh-hant/su/7959/",
+        "iTaigi": "https://itaigi.tw/k/軟晡/",
+        "台日大辭典": "https://taigi.fhl.net/dick/"
+      },
+      "社群來源": {
+        "管道": "無",
+        "脈絡": ""
+      },
+      "田調筆記": "家門前的小巷，下午三四點曬得人不敢出去。等到光開始斜、影子拉長，阿公才把椅子搬出來坐。鄰居的貓也在這時候出現，趴在騎樓矮牆上。那個時候叫軟晡——日頭氣勢已經走了，天還沒暗。整條巷子都鬆了一口氣。",
+      "插圖_prompt": "手繪水彩繪本插畫，參考台灣繪本作家孫心瑜、日本繪本作家酒井駒子的童書質感。米色老紙質背景，看得到紙纖維與輕微歲月痕跡。絕對不要照片寫實感、不要 3D、不要乾淨的數位插畫。\n\n畫面用四個小物件平均構圖，像舊筆記本的一頁：左上是一張搬到門口的舊木椅，椅背有長長的斜影落在地上；右上是一隻橘色的貓，趴在騎樓矮牆上，眼睛半閉；左下是老房子騎樓的圓柱，柱側有傍晚斜光打過來；右下是地板磚上一大塊模糊的光影，邊緣暈開，像陽光正在變軟。物件之間留白多，不要塞滿。\n\n線條是手繪細鉛筆與針筆線，不平整、有時斷裂。顏色是水彩淡彩，邊緣有水漬暈染，筆觸看得見。色調柔和降彩度，主色：淡橘、米黃、霧灰、深棕。氛圍：傍晚光線變軟，整條巷子鬆了一口氣。\n\nwatercolor illustration, children's book style, hand-drawn loose linework, paper texture, muted palette, imperfect brushwork, scrapbook composition.\n\nNegative prompt: photorealistic, 3D render, digital painting, vector art, hyperrealistic, glossy, cinematic lighting.\n\n畫面不要任何文字。",
+      "建立日期": "2026-05-17"
+    },
+    {
+      "id": "2026-05-17-100001",
+      "詞目": "日頭赤焱焱，隨人顧性命",
+      "台羅": "Ji̍t-thâu tshiah-iānn-iānn, suî-lâng kòo sènn-miā",
+      "字典是否收錄": {
+        "教育部": true,
+        "iTaigi": "待驗證",
+        "台日大辭典": "待驗證"
+      },
+      "釋義": {
+        "本義": "俗諺。大太陽底下，人各自顧自己的命，無力顧及他人。形容人在患難或困境中，以自我保護為主要考量。",
+        "備註": "日常多單獨使用前半句「日頭赤焱焱」形容毒辣的烈日。近義俗諺：死道友，無死貧道／火燒跤，隨人掰。iTaigi 與台日大辭典待驗證。"
+      },
+      "例句": [
+        "Tú-tio̍h bô kong-pênn ê tāi-tsì, tio̍h-ài tsik-sî huán-iánn, m̄-thang『Ji̍t-thâu tshiah-iānn-iānn, suî-lâng kòo sènn-miā』, hōo bô-koo ê lâng siū-hāi.(拄著無公平的代誌，著愛即時反映，毋通『日頭赤焱焱，隨人顧性命』，予無辜的人受害。)"
+      ],
+      "字典連結": {
+        "教育部臺灣台語常用詞辭典": "https://sutian.moe.edu.tw/zh-hant/su/26953/",
+        "iTaigi": "https://itaigi.tw/k/日頭赤焱焱/",
+        "台日大辭典": "https://taigi.fhl.net/dick/"
+      },
+      "社群來源": {
+        "管道": "無",
+        "脈絡": ""
+      },
+      "田調筆記": "暑假的中午，外面沒有人。連狗都不見了。柏油路面的熱氣一陣一陣往上竄，公車站牌在那裡站著，沒有人等。大人說「日頭赤焱焱」，說這個時候出去是在找死。我趴在窗台往外看，整條街靜著，只有一輛機車遠遠駛過，司機縮著頭。",
+      "插圖_prompt": "手繪水彩繪本插畫，參考台灣繪本作家孫心瑜、日本繪本作家酒井駒子的童書質感。米色老紙質背景，看得到紙纖維與輕微歲月痕跡。絕對不要照片寫實感、不要 3D、不要乾淨的數位插畫。\n\n畫面用四個小物件平均構圖，像舊筆記本的一頁：左上是一個空蕩蕩的公車站牌，站在大太陽底下，四周沒有人；右上是一扇窗，窗台上有一雙手趴著往外看，只露出眼睛；左下是一雙涼鞋擺在門邊沒人穿，地板磚很白很燙的感覺；右下是一台舊電扇，扇葉在旋轉，風向紙條飄著。物件之間留白多，不要塞滿。\n\n線條是手繪細鉛筆與針筆線，不平整、有時斷裂。顏色是水彩淡彩，邊緣有水漬暈染，筆觸看得見。色調柔和降彩度，主色：米黃、淡橘、霧白、淺藍。氛圍：暑假正午，人都躲起來了，整條街只剩太陽。\n\nwatercolor illustration, children's book style, hand-drawn loose linework, paper texture, muted palette, imperfect brushwork, scrapbook composition.\n\nNegative prompt: photorealistic, 3D render, digital painting, vector art, hyperrealistic, glossy, cinematic lighting.\n\n畫面不要任何文字。",
+      "建立日期": "2026-05-17"
+    }
+  ]
+}
