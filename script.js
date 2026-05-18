@@ -253,6 +253,30 @@ const illustrationTemplates = {
     <path class="plate" d="M142 132h66"></path>
     <path class="lamp-glow" d="M43 140c51-9 107-9 169 0"></path>
   `),
+  四序: svgShell("傍晚整理棉被與木櫃插圖", `
+    <ellipse class="shadow" cx="132" cy="140" rx="82" ry="10"></ellipse>
+    <rect class="room" x="42" y="38" width="176" height="100"></rect>
+    <path class="lamp-glow" d="M148 52c23 14 42 30 58 52M137 73c24 13 43 28 59 47"></path>
+    <rect class="stall" x="54" y="65" width="63" height="72"></rect>
+    <path class="shelf" d="M63 84h45M63 103h45M63 122h45"></path>
+    <path class="bowl-rim" d="M138 88h56v35h-56zM146 97h40M146 111h40"></path>
+    <path class="hand" d="M122 54c20 6 35 6 49 0 8-3 14 8 7 14-20 16-45 15-62 4-7-5-2-21 6-18z"></path>
+    <path class="dust" d="M183 62c9-8 18-9 28-4M184 73c8-4 17-4 25 1"></path>
+    <path class="wood-line" d="M64 85c11 8 30 8 43 0M64 104c12 7 29 7 43 0M64 123c12 7 29 7 43 0"></path>
+  `),
+  白鑠鑠: svgShell("晨光裡的新白襯衫與書包插圖", `
+    <ellipse class="shadow" cx="132" cy="140" rx="82" ry="10"></ellipse>
+    <rect class="window" x="158" y="38" width="54" height="72"></rect>
+    <path class="window-line" d="M185 38v72M158 74h54"></path>
+    <path class="lamp-glow" d="M155 60c-31 13-58 30-80 52M165 85c-27 11-50 24-69 41"></path>
+    <rect class="chair" x="48" y="86" width="58" height="42"></rect>
+    <path class="bag" d="M60 57c13 10 34 10 47 0 8 28 6 49-8 65-10 5-28 5-39 0-12-18-14-39 0-65z"></path>
+    <path class="bag-line" d="M70 69c7 6 20 6 27 0M68 89c9 6 23 6 32 0"></path>
+    <path class="sofa" d="M128 104h44c9 0 14 7 14 17h-72c0-10 5-17 14-17z"></path>
+    <rect class="hammer" x="134" y="80" width="47" height="21" rx="4"></rect>
+    <path class="wind" d="M181 91c14 7 22 16 25 28"></path>
+    <path class="bowl-rim" d="M174 51c16 11 24 31 18 58-8 5-22 5-30 0 9-23 10-43 12-58z"></path>
+  `),
   暗摸摸: svgShell("暗客廳與窗外路燈插圖", `
     <rect class="room" x="45" y="34" width="168" height="102"></rect>
     <rect class="dark-window" x="71" y="49" width="58" height="61"></rect>
