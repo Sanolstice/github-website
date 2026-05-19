@@ -277,6 +277,29 @@ const illustrationTemplates = {
     <path class="wind" d="M181 91c14 7 22 16 25 28"></path>
     <path class="bowl-rim" d="M174 51c16 11 24 31 18 58-8 5-22 5-30 0 9-23 10-43 12-58z"></path>
   `),
+  相借問: svgShell("清晨市場相借問插圖", `
+    <ellipse class="shadow" cx="132" cy="141" rx="84" ry="10"></ellipse>
+    <path class="awning" d="M43 45h78l-8 24H52z"></path>
+    <rect class="stall" x="49" y="80" width="72" height="36"></rect>
+    <path class="sign-line" d="M69 70h32M85 80v36"></path>
+    <path class="bag" d="M148 54c10 11 36 11 47 0 12 25 8 47-7 62-10 5-27 5-37 0-13-15-17-37-3-62z"></path>
+    <path class="bag-line" d="M158 67c7 7 20 7 27 0M155 86c10 8 25 8 35 0"></path>
+    <path class="leaf" d="M155 100c17-11 30-8 39 7-16 6-29 4-39-7zM146 90c16-8 27-4 35 9-15 4-27 1-35-9z"></path>
+    <path class="hand" d="M55 123c13-9 30-9 42 2 8 7 1 18-9 12-12-7-25-7-38 0-8 5-15-7-5-14z"></path>
+    <path class="hand" d="M109 126c16 8 31 8 47-2 8-5 16 7 7 14-18 14-41 15-62 3-9-5-3-20 8-15z"></path>
+    <path class="crumbs" d="M177 127h2M188 132h2M201 124h2M210 136h2M60 134h2M72 128h2"></path>
+  `),
+  月眉: svgShell("山稜線上的月眉插圖", `
+    <ellipse class="shadow" cx="132" cy="142" rx="82" ry="10"></ellipse>
+    <path class="room" d="M40 105c20-28 36-42 59-32 18 8 28 30 50 23 17-5 28-27 49-24 14 2 22 17 27 33v34H40z"></path>
+    <path class="plant-leaf" d="M42 111c22-25 39-35 61-25 17 8 29 27 47 20 17-6 29-25 49-22 13 2 22 14 26 27v28H42z"></path>
+    <path class="bowl-rim" d="M71 42c16-16 38-18 55-5-17-1-32 9-39 25-8 18-4 35 10 49-27-11-38-46-26-69z"></path>
+    <path class="plate" d="M61 132h91M71 119h79M84 106h69M96 94h59"></path>
+    <path class="stem" d="M57 129c-8-15-8-29 0-42M197 128c7-18 5-34-6-49"></path>
+    <path class="leaf" d="M48 104c16-8 27-5 34 9-15 4-27 1-34-9zM189 96c16-8 29-5 38 10-16 5-29 2-38-10z"></path>
+    <path class="hand" d="M159 128c18-11 29-28 35-55 2-9 17-7 16 3-3 31-18 56-43 69-9 5-17-10-8-17z"></path>
+    <path class="hit-lines" d="M196 60l16-18M201 66l22-7"></path>
+  `),
   暗摸摸: svgShell("暗客廳與窗外路燈插圖", `
     <rect class="room" x="45" y="34" width="168" height="102"></rect>
     <rect class="dark-window" x="71" y="49" width="58" height="61"></rect>
