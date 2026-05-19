@@ -68,7 +68,7 @@ const normalizeNote = (note = {}) => ({
   pronunciation: normalizeText(getNoteValue(note, ["pronunciation", "reading", "romanization", "pinyin", "音讀", "台羅"]), "音讀未提供"),
   definition: normalizeText(getNoteValue(note, ["definition", "meaning", "description", "explanation", "釋義"])?.本義 || getNoteValue(note, ["definition", "meaning", "description", "explanation", "釋義"]), "釋義未提供"),
   fieldNote: normalizeFieldNote(note),
-  sensoryTags: normalizeTags(note?.sensoryTags || getNoteValue(note, ["tags", "sensoryCategory", "category", "分類"]) || note?.社群來源?.管道),
+  sensoryTags: normalizeTags(note?.sensoryTags || getNoteValue(note, ["tags", "sensoryCategory", "category", "分類"])),
   sourceUrl: normalizeSourceUrl(note),
 });
 
