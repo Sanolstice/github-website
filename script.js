@@ -25,16 +25,20 @@ const normalizeText = (value, fallback = "未提供") => {
 };
 
 const normalizeTags = (value) => {
+  const isPublicTag = (tag) => !/(ABB|路線\s*A|巡熱詞|温若喬|社群來源|Threads|收詞)/i.test(tag);
+
   if (Array.isArray(value)) {
-    const tags = value.map((tag) => normalizeText(tag, "")).filter(Boolean);
+    const tags = value.map((tag) => normalizeText(tag, "")).filter(Boolean).filter(isPublicTag);
     return tags.length ? tags : ["未分類"];
   }
 
   if (typeof value === "string" && value.trim()) {
-    return value
+    const tags = value
       .split(/[,，、/]/)
       .map((tag) => tag.trim())
-      .filter(Boolean);
+      .filter(Boolean)
+      .filter(isPublicTag);
+    return tags.length ? tags : ["未分類"];
   }
 
   return ["未分類"];
@@ -63,12 +67,20 @@ const normalizeFieldNote = (note) => {
   return normalizeText(fieldNote, "還沒有田調筆記，先把這個詞留在口袋裡。");
 };
 
+const normalizeSourceMetadata = (note) => {
+  const source = note?.社群來源;
+  if (!source || typeof source !== "object") return "";
+
+  return normalizeText(source.可公開 || source.public || source.label, "");
+};
+
 const normalizeNote = (note = {}) => ({
   term: normalizeText(getNoteValue(note, ["term", "word", "title", "name", "詞", "詞目"])),
   pronunciation: normalizeText(getNoteValue(note, ["pronunciation", "reading", "romanization", "pinyin", "音讀", "台羅"]), "音讀未提供"),
   definition: normalizeText(getNoteValue(note, ["definition", "meaning", "description", "explanation", "釋義"])?.本義 || getNoteValue(note, ["definition", "meaning", "description", "explanation", "釋義"]), "釋義未提供"),
   fieldNote: normalizeFieldNote(note),
   sensoryTags: normalizeTags(note?.sensoryTags || getNoteValue(note, ["tags", "sensoryCategory", "category", "分類"])),
+  sourceMetadata: normalizeSourceMetadata(note),
   sourceUrl: normalizeSourceUrl(note),
 });
 
