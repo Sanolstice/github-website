@@ -312,6 +312,37 @@ const illustrationTemplates = {
     <path class="hand" d="M159 128c18-11 29-28 35-55 2-9 17-7 16 3-3 31-18 56-43 69-9 5-17-10-8-17z"></path>
     <path class="hit-lines" d="M196 60l16-18M201 66l22-7"></path>
   `),
+  數念: svgShell("剛掛電話後的安靜客廳插圖", `
+    <ellipse class="shadow" cx="132" cy="141" rx="82" ry="10"></ellipse>
+    <rect class="room" x="41" y="42" width="177" height="94"></rect>
+    <rect class="dark-window" x="157" y="50" width="50" height="57"></rect>
+    <path class="window-line" d="M182 50v57M157 78h50"></path>
+    <path class="lamp-glow" d="M151 111c18-12 36-19 55-22"></path>
+    <rect class="stall" x="57" y="81" width="48" height="29"></rect>
+    <path class="sign-line" d="M66 75h30M81 81v29"></path>
+    <circle class="lamp" cx="81" cy="62" r="13"></circle>
+    <path class="wind" d="M92 68c17 8 24 20 20 36"></path>
+    <rect class="dark-window" x="125" y="60" width="35" height="28"></rect>
+    <path class="sofa" d="M78 122h85c10 0 17 7 17 17H62c0-10 6-17 16-17z"></path>
+    <circle class="person b" cx="121" cy="102" r="15"></circle>
+    <path class="shoulders" d="M97 129c10-23 40-23 50 0"></path>
+  `),
+  好玄: svgShell("停電夜晚燭光與手影插圖", `
+    <ellipse class="shadow" cx="132" cy="141" rx="82" ry="10"></ellipse>
+    <rect class="room" x="42" y="39" width="176" height="98"></rect>
+    <rect class="dark-window" x="165" y="52" width="43" height="62"></rect>
+    <path class="window-line" d="M186 52v62M165 83h43"></path>
+    <path class="rain" d="M174 61l-8 15M196 63l-8 15M205 88l-8 15"></path>
+    <path class="lamp-glow" d="M74 68c27 15 58 28 94 39M71 86c28 10 61 20 99 29"></path>
+    <rect class="table" x="54" y="111" width="76" height="18"></rect>
+    <path class="bowl-rim" d="M72 105h30"></path>
+    <path class="lamp" d="M83 99c-5-18 13-18 8 0z"></path>
+    <path class="steam" d="M86 78c-8-11 10-12 1-25"></path>
+    <path class="hand" d="M132 60c15 4 28 16 39 35 5 9-7 17-14 9-9-11-19-18-32-22-9-3-4-25 7-22z"></path>
+    <circle class="person c" cx="86" cy="101" r="14"></circle>
+    <path class="shoulders" d="M63 126c9-22 37-22 47 0"></path>
+    <path class="wood-line" d="M51 93h29M53 103h24"></path>
+  `),
   暗摸摸: svgShell("暗客廳與窗外路燈插圖", `
     <rect class="room" x="45" y="34" width="168" height="102"></rect>
     <rect class="dark-window" x="71" y="49" width="58" height="61"></rect>
