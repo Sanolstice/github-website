@@ -121,6 +121,8 @@ const drawRandomNotes = () => {
   return drawPool.splice(0, Math.min(notesPerDraw, drawPool.length));
 };
 
+const getLatestNotes = () => allFieldNotes.slice(-notesPerDraw).reverse();
+
 const createField = (label, value, extraClass = "") => {
   const field = document.createElement("div");
   field.className = "note-field";
@@ -506,7 +508,7 @@ const loadFieldNotes = async () => {
 
     allFieldNotes = loadedNotes;
     drawPool = shuffle(allFieldNotes);
-    renderRandomNotes();
+    renderFieldNotes(getLatestNotes());
   } catch (error) {
     console.warn("田調素材清單讀取失敗。", error);
     renderEmptyState("尚未讀取到 data/field-notes/index.json。請用 localhost 預覽，或確認資料檔已放在 data/field-notes 資料夾。");
