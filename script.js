@@ -362,16 +362,19 @@ const illustrationTemplates = {
     <path class="shoulders" d="M63 126c9-22 37-22 47 0"></path>
     <path class="wood-line" d="M51 93h29M53 103h24"></path>
   `),
-  拍損: svgShell("廚房地磚上撿起碎盤片插圖", `
+  拍損: svgShell("廚房門框邊探頭的阿嬤插圖", `
     <ellipse class="shadow" cx="132" cy="141" rx="82" ry="10"></ellipse>
-    <rect class="room" x="39" y="44" width="182" height="95"></rect>
-    <path class="window-line" d="M39 76h182M39 108h182M76 44v95M113 44v95M150 44v95M187 44v95"></path>
-    <path class="hand" d="M80 89c20 5 37 17 52 36 6 8-5 18-14 12-18-13-35-22-55-26-9-2-1-27 17-22z"></path>
-    <path class="hand" d="M156 88c-19 8-33 20-43 39-5 9 8 17 16 10 14-13 27-21 42-27 10-4 0-28-15-22z"></path>
-    <path class="bowl-rim" d="M113 102c18-10 42-6 54 12-16 12-40 14-59 4z"></path>
-    <path class="window-line" d="M123 105c12 4 24 7 36 6"></path>
-    <path class="crumbs" d="M82 122h2M95 130h2M177 119h2M189 128h2M144 91h2"></path>
-    <path class="plate" d="M101 137c22 5 44 5 66 0"></path>
+    <rect class="room" x="40" y="42" width="180" height="96"></rect>
+    <rect class="stall" x="52" y="60" width="46" height="72"></rect>
+    <path class="window-line" d="M98 46v88M52 92h44"></path>
+    <path class="sofa" d="M99 71c18-18 47-14 58 7 9 17 3 39-14 51-16 11-41 8-52-8-12-17-9-34 8-50z"></path>
+    <circle class="person b" cx="124" cy="83" r="18"></circle>
+    <path class="shoulders" d="M96 129c11-28 48-28 61 0"></path>
+    <path class="root-line" d="M116 85c6 5 15 5 22 0M117 96c8 6 19 6 27 0"></path>
+    <path class="dust" d="M113 77c7-6 21-6 29 0"></path>
+    <rect class="table" x="164" y="93" width="39" height="20"></rect>
+    <path class="steam" d="M175 82c-6-8 8-10 2-20M194 84c-6-8 7-11 2-21"></path>
+    <path class="lamp-glow" d="M58 136c39-8 82-9 130-2"></path>
   `),
   毋甘: svgShell("梳妝台上的香水瓶與指尖插圖", `
     <ellipse class="shadow" cx="132" cy="141" rx="82" ry="10"></ellipse>
