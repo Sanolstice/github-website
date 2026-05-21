@@ -3,13 +3,16 @@ const navToggle = document.querySelector("[data-nav-toggle]");
 const navLinks = [...document.querySelectorAll(".site-nav a")];
 const sections = [...document.querySelectorAll("main section[id]")];
 const notesGrid = document.querySelector("[data-notes-grid]");
-const shuffleButton = document.querySelector("[data-shuffle-notes]");
+const pagination = document.querySelector("[data-pagination]");
+const prevPageButton = document.querySelector("[data-page-prev]");
+const nextPageButton = document.querySelector("[data-page-next]");
+const pageStatus = document.querySelector("[data-page-status]");
 
 const dataDirectory = "data/field-notes";
 const dataIndexPath = `${dataDirectory}/index.json`;
-const notesPerDraw = 5;
+const notesPerPage = 10;
 let allFieldNotes = [];
-let drawPool = [];
+let currentPage = 0;
 
 const createTextElement = (tagName, className, text) => {
   const element = document.createElement(tagName);
@@ -104,24 +107,38 @@ const getNoteValue = (note, keys) => {
   return "";
 };
 
-const shuffle = (items) => {
-  const shuffled = [...items];
-  for (let index = shuffled.length - 1; index > 0; index -= 1) {
-    const randomIndex = Math.floor(Math.random() * (index + 1));
-    [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
-  }
-  return shuffled;
+const getTotalPages = () => Math.max(1, Math.ceil(allFieldNotes.length / notesPerPage));
+
+const getPageNotes = (page) => {
+  const startIndex = page * notesPerPage;
+  return allFieldNotes.slice(startIndex, startIndex + notesPerPage);
 };
 
-const drawRandomNotes = () => {
-  if (drawPool.length < notesPerDraw) {
-    drawPool = shuffle(allFieldNotes);
+const updatePaginationControls = () => {
+  if (!pagination) return;
+
+  const totalPages = getTotalPages();
+  pagination.hidden = !allFieldNotes.length;
+
+  if (pageStatus) {
+    pageStatus.textContent = `第 ${currentPage + 1} / ${totalPages} 頁`;
   }
 
-  return drawPool.splice(0, Math.min(notesPerDraw, drawPool.length));
+  if (prevPageButton) {
+    prevPageButton.disabled = currentPage === 0;
+  }
+
+  if (nextPageButton) {
+    nextPageButton.disabled = currentPage >= totalPages - 1;
+  }
 };
 
-const getLatestNotes = () => allFieldNotes.slice(-notesPerDraw).reverse();
+const renderCurrentPage = () => {
+  const totalPages = getTotalPages();
+  currentPage = Math.min(Math.max(currentPage, 0), totalPages - 1);
+  renderFieldNotes(getPageNotes(currentPage), currentPage * notesPerPage);
+  updatePaginationControls();
+};
 
 const createField = (label, value, extraClass = "") => {
   const field = document.createElement("div");
@@ -423,7 +440,7 @@ const renderEmptyState = (message) => {
   notesGrid.append(createTextElement("p", "empty-note", message));
 };
 
-const renderFieldNotes = (fieldNotes) => {
+const renderFieldNotes = (fieldNotes, startIndex = 0) => {
   if (!notesGrid) return;
 
   if (!fieldNotes.length) {
@@ -447,7 +464,7 @@ const renderFieldNotes = (fieldNotes) => {
     const cardTop = document.createElement("div");
     cardTop.className = "note-card-top";
     cardTop.append(
-      createTextElement("p", "note-index", `specimen ${String(index + 1).padStart(2, "0")}`),
+      createTextElement("p", "note-index", `specimen ${String(startIndex + index + 1).padStart(2, "0")}`),
       createTags(sensoryTags)
     );
 
@@ -477,9 +494,6 @@ const renderFieldNotes = (fieldNotes) => {
   });
 };
 
-const renderRandomNotes = () => {
-  renderFieldNotes(drawRandomNotes());
-};
 
 const normalizeDataPaths = (payload) => {
   const files = Array.isArray(payload) ? payload : payload?.files;
@@ -529,9 +543,9 @@ const loadFieldNotes = async () => {
       loadedNotes.push(...notes);
     }
 
-    allFieldNotes = loadedNotes;
-    drawPool = shuffle(allFieldNotes);
-    renderFieldNotes(getLatestNotes());
+    allFieldNotes = loadedNotes.reverse();
+    currentPage = 0;
+    renderCurrentPage();
   } catch (error) {
     console.warn("田調素材清單讀取失敗。", error);
     renderEmptyState("尚未讀取到 data/field-notes/index.json。請用 localhost 預覽，或確認資料檔已放在 data/field-notes 資料夾。");
@@ -551,7 +565,15 @@ navToggle?.addEventListener("click", () => {
   navToggle.setAttribute("aria-expanded", String(!isOpen));
 });
 
-shuffleButton?.addEventListener("click", renderRandomNotes);
+prevPageButton?.addEventListener("click", () => {
+  currentPage -= 1;
+  renderCurrentPage();
+});
+
+nextPageButton?.addEventListener("click", () => {
+  currentPage += 1;
+  renderCurrentPage();
+});
 
 navLinks.forEach((link) => {
   link.addEventListener("click", closeMenu);
