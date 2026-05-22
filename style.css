@@ -347,16 +347,15 @@ h1 {
 
 .notes-grid {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(22px, 3vw, 34px);
-  align-items: start;
+  align-items: stretch;
 }
 
 .note-card {
   position: relative;
   display: grid;
   min-height: 500px;
-  grid-column: span 4;
   grid-template-rows: 176px auto auto 1fr auto;
   gap: 14px;
   padding: 16px 18px 22px;
@@ -369,33 +368,28 @@ h1 {
   transition: transform 150ms ease, box-shadow 150ms ease;
 }
 
-.note-card:nth-child(5n + 1) {
+.note-card:nth-child(6n + 1) {
   --tilt: -0.9deg;
-  grid-column: span 4;
-  margin-top: 10px;
 }
 
-.note-card:nth-child(5n + 2) {
+.note-card:nth-child(6n + 2) {
   --tilt: 0.7deg;
-  grid-column: span 3;
-  margin-top: 62px;
 }
 
-.note-card:nth-child(5n + 3) {
+.note-card:nth-child(6n + 3) {
   --tilt: -0.2deg;
-  grid-column: span 3;
 }
 
-.note-card:nth-child(5n + 4) {
+.note-card:nth-child(6n + 4) {
   --tilt: 0.8deg;
-  grid-column: span 5;
-  margin-left: clamp(0px, 4vw, 62px);
 }
 
-.note-card:nth-child(5n) {
+.note-card:nth-child(6n + 5) {
   --tilt: -0.5deg;
-  grid-column: span 4;
-  margin-top: 36px;
+}
+
+.note-card:nth-child(6n) {
+  --tilt: 0.45deg;
 }
 
 .note-card:hover {
@@ -784,17 +778,7 @@ h1 {
   }
 
   .notes-grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-
-  .note-card,
-  .note-card:nth-child(5n + 1),
-  .note-card:nth-child(5n + 2),
-  .note-card:nth-child(5n + 3),
-  .note-card:nth-child(5n + 4),
-  .note-card:nth-child(5n) {
-    grid-column: span 3;
-    margin-left: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -854,15 +838,8 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .note-card,
-  .note-card:nth-child(5n + 1),
-  .note-card:nth-child(5n + 2),
-  .note-card:nth-child(5n + 3),
-  .note-card:nth-child(5n + 4),
-  .note-card:nth-child(5n) {
-    grid-column: 1;
+  .note-card {
     min-height: auto;
-    margin-top: 0;
     transform: none;
   }
 
