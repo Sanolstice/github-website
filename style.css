@@ -545,8 +545,20 @@ h1 {
 }
 
 .hand,
-.sofa {
+.sofa,
+.face,
+.ear,
+.neck {
   fill: #e5bda5;
+}
+
+.hair {
+  fill: #8b7668;
+}
+
+.cheek {
+  fill: #cc756f;
+  stroke: rgba(111, 79, 69, 0.38);
 }
 
 .crumbs,

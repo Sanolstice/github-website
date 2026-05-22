@@ -10,7 +10,7 @@ const pageStatus = document.querySelector("[data-page-status]");
 
 const dataDirectory = "data/field-notes";
 const dataIndexPath = `${dataDirectory}/index.json`;
-const notesPerPage = 10;
+const notesPerPage = 6;
 let allFieldNotes = [];
 let currentPage = 0;
 
@@ -402,6 +402,16 @@ const illustrationTemplates = {
     <path class="watermelon-rind" d="M55 113c25 31 129 31 154 0"></path>
     <path class="seed" d="M92 100c-3-8 5-8 2 0M122 90c-3-8 5-8 2 0M151 101c-3-8 5-8 2 0M176 91c-3-8 5-8 2 0"></path>
     <path class="plate" d="M62 129c36 17 105 17 141 0"></path>
+  `),
+  紅絳絳: svgShell("臉頰泛紅的側臉插圖", `
+    <ellipse class="shadow" cx="132" cy="141" rx="72" ry="10"></ellipse>
+    <path class="hair" d="M87 70c10-27 48-35 72-16 23 18 25 53 8 75-13 17-41 19-59 8-21-13-31-42-21-67z"></path>
+    <path class="face" d="M117 58c31 4 50 29 44 61-5 28-29 40-53 28-22-12-33-40-23-63 5-13 17-23 32-26z"></path>
+    <path class="neck" d="M126 133c3 12 2 20-4 28M151 128c8 10 12 20 12 31"></path>
+    <path class="shoulders" d="M83 164c17-27 67-30 92-4"></path>
+    <circle class="cheek" cx="145" cy="105" r="17"></circle>
+    <path class="root-line" d="M135 82c7-4 16-3 24 2M153 123c-6 5-13 6-21 2"></path>
+    <path class="ear" d="M164 93c13 2 15 24 2 31"></path>
   `),
   花彔彔: svgShell("雜貨店門口色塊與塑膠桶插圖", `
     <rect class="shop" x="45" y="35" width="170" height="101"></rect>
