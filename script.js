@@ -430,6 +430,35 @@ const illustrationTemplates = {
     <path class="plant-leaf" d="M79 68c24-15 43-9 53 23-26 6-44-1-53-23zM191 61c-24-13-43-5-57 22 23 8 43 1 57-22zM94 45c18-7 31 0 38 25-18 3-31-5-38-25zM181 45c-19-6-33 1-44 22 18 5 33-2 44-22z"></path>
     <path class="rain" d="M69 39l-8 12M198 38l-8 12M211 73l-8 12"></path>
   `),
+  菁仔欉: svgShell("路旁檳榔樹與背影插圖", `
+    <ellipse class="shadow" cx="132" cy="143" rx="93" ry="8"></ellipse>
+    <path class="wood-line" d="M62 137L67 54M93 137L97 43M125 137L128 50"></path>
+    <path class="plant-leaf" d="M67 55c-24-12-32-24-31-34 16 1 29 10 37 28M67 55c5-24 14-37 27-41 2 14-5 28-22 42M96 45c-21-14-29-27-25-38 15 3 26 14 31 33M96 45c10-22 21-34 35-34-1 15-11 27-29 38M128 51c-16-17-21-31-15-41 15 6 23 18 22 36M128 51c14-18 27-26 41-23-4 14-16 23-36 29"></path>
+    <circle class="person b" cx="182" cy="94" r="15"></circle>
+    <path class="shoulders" d="M160 137c5-25 38-25 46 0"></path>
+    <path class="bag-line" d="M179 110v27M57 137h157"></path>
+  `),
+  拍殕仔光: svgShell("破曉山路與路燈插圖", `
+    <rect class="dark-window" x="38" y="34" width="184" height="97"></rect>
+    <path class="room" d="M38 89c30-16 48-17 76 0 25-27 56-30 108-4v46H38z"></path>
+    <path class="window-line" d="M39 69h182"></path>
+    <path class="wood-line" d="M138 132c-5-21-13-35-25-44M138 132c4-24 16-39 31-52"></path>
+    <path class="lamp-glow" d="M66 51v70M57 52h19M61 52c1-11 11-11 12 0"></path>
+    <circle class="lamp" cx="67" cy="58" r="10"></circle>
+    <circle class="person c" cx="143" cy="102" r="10"></circle>
+    <path class="shoulders" d="M127 126c5-17 28-17 34 0"></path>
+  `),
+  眠夢: svgShell("窗邊神遊的側影插圖", `
+    <rect class="window" x="111" y="38" width="99" height="76"></rect>
+    <path class="window-line" d="M160 38v76M111 76h99"></path>
+    <path class="lamp-glow" d="M111 45L66 116M129 38L82 126"></path>
+    <ellipse class="shadow" cx="107" cy="141" rx="64" ry="8"></ellipse>
+    <circle class="person a" cx="87" cy="83" r="21"></circle>
+    <path class="shoulders" d="M50 132c8-34 55-35 70 0"></path>
+    <path class="root-line" d="M90 84c9 1 16 4 21 9M103 91l11-1"></path>
+    <path class="plant-leaf" d="M175 104c13-15 27-16 39-4-13 13-26 14-39 4z"></path>
+    <path class="stem" d="M177 118v-24"></path>
+  `),
 };
 
 const genericIllustration = svgShell("生活物件插圖", `
