@@ -459,6 +459,36 @@ const illustrationTemplates = {
     <path class="plant-leaf" d="M175 104c13-15 27-16 39-4-13 13-26 14-39 4z"></path>
     <path class="stem" d="M177 118v-24"></path>
   `),
+  雲尪: svgShell("仰望巨大雲團的祖孫插圖", `
+    <rect class="window" x="33" y="34" width="194" height="91"></rect>
+    <path class="bowl-rim" d="M46 77c-1-17 15-27 30-22 6-23 39-29 54-9 17-23 54-16 58 12 22-4 33 12 28 27H46z"></path>
+    <path class="dust" d="M55 76c18-6 33-5 48 3M85 61c18-12 39-10 52 3M130 60c16-12 34-10 48 6M163 80c17-8 30-7 43 1"></path>
+    <path class="room" d="M34 125c37-22 68-22 94-7 29-20 60-19 98 7"></path>
+    <circle class="person b" cx="103" cy="118" r="9"></circle>
+    <path class="shoulders" d="M90 142c4-16 22-16 27 0"></path>
+    <circle class="person c" cx="128" cy="124" r="7"></circle>
+    <path class="shoulders" d="M117 143c3-13 18-13 22 0"></path>
+  `),
+  燒燙燙: svgShell("端著熱碗的兩雙手插圖", `
+    <ellipse class="shadow" cx="132" cy="141" rx="78" ry="9"></ellipse>
+    <path class="bowl" d="M90 83h76c-5 29-18 44-38 44-21 0-34-15-38-44z"></path>
+    <path class="bowl-rim" d="M86 83c9-12 77-12 84 0-10 12-74 12-84 0z"></path>
+    <path class="steam" d="M106 61c-8-12 8-15 2-29M128 59c-8-12 9-16 2-31M151 61c-8-12 8-16 2-29"></path>
+    <path class="hand" d="M92 95c-16-5-33 0-43 12-6 7 0 16 8 13l42-13M164 96c17-5 33 1 44 13 6 7 0 16-9 13l-42-14"></path>
+    <path class="person a" d="M42 91c12-11 27-16 42-14M215 88c-12-11-26-15-40-13"></path>
+    <path class="lamp-glow" d="M57 125c11 7 23 9 35 7M171 132c13 1 24-2 34-8"></path>
+  `),
+  無聲無說: svgShell("暗夜階梯上的安靜背影插圖", `
+    <rect class="dark-window" x="37" y="31" width="188" height="107"></rect>
+    <circle class="lamp" cx="188" cy="53" r="12"></circle>
+    <path class="room" d="M48 112h164v26H48z"></path>
+    <path class="window-line" d="M48 112h164M55 123h150M62 134h137"></path>
+    <circle class="person c" cx="119" cy="88" r="15"></circle>
+    <path class="sofa" d="M94 123c6-24 43-26 54 0"></path>
+    <path class="wood-line" d="M107 103l-15 17M132 104l17 17M143 101l21 2"></path>
+    <circle class="bucket red" cx="165" cy="103" r="3"></circle>
+    <path class="steam" d="M165 98c-7-9 7-11 1-19"></path>
+  `),
 };
 
 const genericIllustration = svgShell("生活物件插圖", `
