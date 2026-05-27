@@ -489,6 +489,40 @@ const illustrationTemplates = {
     <circle class="bucket red" cx="165" cy="103" r="3"></circle>
     <path class="steam" d="M165 98c-7-9 7-11 1-19"></path>
   `),
+  燈仔花: svgShell("山路邊的燈仔花插圖", `
+    <path class="room" d="M36 119c42-27 79-28 110-12 24-13 49-14 79-4v32H36z"></path>
+    <path class="wood-line" d="M42 133c47-8 103-7 175 0"></path>
+    <path class="stem" d="M66 123V73M100 125V59M139 126V77M178 124V64"></path>
+    <path class="plant-leaf" d="M66 91c-16-14-29-14-38-1 14 11 26 12 38 1zM70 102c17-14 30-14 38 1-14 10-26 10-38-1zM100 76c-16-14-30-14-40 0 13 11 26 11 40 0zM103 94c18-14 31-13 40 2-14 9-27 9-40-2zM139 94c-14-15-27-16-38-4 12 12 25 13 38 4zM179 82c-15-15-29-15-39-2 13 11 26 12 39 2z"></path>
+    <circle class="bucket red" cx="64" cy="76" r="13"></circle>
+    <circle class="bucket red" cx="99" cy="59" r="14"></circle>
+    <circle class="bucket red" cx="138" cy="79" r="12"></circle>
+    <circle class="bucket red" cx="179" cy="64" r="14"></circle>
+    <path class="leaf" d="M75 135c12-12 25-12 37 0-13 7-25 7-37 0zM148 138c11-12 24-12 35 0-12 7-24 7-35 0z"></path>
+  `),
+  四秀仔: svgShell("四格旋轉點心盒插圖", `
+    <ellipse class="shadow" cx="130" cy="140" rx="91" ry="8"></ellipse>
+    <circle class="table" cx="117" cy="87" r="55"></circle>
+    <circle class="bowl-rim" cx="117" cy="87" r="50"></circle>
+    <path class="window-line" d="M117 38v98M68 87h98"></path>
+    <circle class="soft-a" cx="117" cy="87" r="8"></circle>
+    <path class="food soft-b" d="M79 61l15-9 11 14-16 10zM131 55l17 3-3 18-17-3zM76 103l20-4 3 16-20 4zM132 105l16-9 9 15-16 9z"></path>
+    <path class="plate" d="M178 96c15-9 30-7 42 4-10 17-29 22-46 12z"></path>
+    <circle class="bucket yellow" cx="191" cy="103" r="6"></circle>
+    <circle class="bucket yellow" cx="205" cy="104" r="6"></circle>
+    <path class="hand" d="M191 123c-16 2-29 8-40 18-7 6-16-4-9-11 13-14 28-23 45-26 9-2 14 17 4 19z"></path>
+  `),
+  失禮: svgShell("小燈旁剝菜的阿嬤插圖", `
+    <rect class="dark-window" x="39" y="37" width="183" height="99"></rect>
+    <circle class="lamp" cx="162" cy="64" r="18"></circle>
+    <path class="lamp-glow" d="M143 86c17 12 35 12 53 0M162 83v35"></path>
+    <rect class="table" x="118" y="112" width="83" height="20"></rect>
+    <circle class="person b" cx="91" cy="88" r="17"></circle>
+    <path class="sofa" d="M66 128c5-29 43-30 55 0"></path>
+    <path class="hand" d="M103 101c16 2 27 8 36 17M103 109c13 3 21 9 27 17"></path>
+    <path class="plant-leaf" d="M134 113c10-10 21-10 29 2-11 6-21 5-29-2zM143 122c10-8 20-7 28 4-11 4-20 3-28-4z"></path>
+    <path class="shoulders" d="M47 142v-29M53 113h16"></path>
+  `),
 };
 
 const genericIllustration = svgShell("生活物件插圖", `
