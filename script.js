@@ -523,6 +523,44 @@ const illustrationTemplates = {
     <path class="plant-leaf" d="M134 113c10-10 21-10 29 2-11 6-21 5-29-2zM143 122c10-8 20-7 28 4-11 4-20 3-28-4z"></path>
     <path class="shoulders" d="M47 142v-29M53 113h16"></path>
   `),
+  幽幽仔疼: svgShell("雜草空地與記憶藤椅插圖", `
+    <ellipse class="shadow" cx="132" cy="143" rx="86" ry="8"></ellipse>
+    <path class="room" d="M34 114c29-16 55-17 83-5 28-12 62-14 109 4v25H34z"></path>
+    <path class="stem" d="M45 136V102M59 138V95M75 137v-28M91 140v-36M111 139v-30M203 138v-31M218 137v-22"></path>
+    <path class="plant-leaf" d="M45 115c-9-9-18-9-25-1 8 7 17 8 25 1zM60 108c10-9 20-8 28 2-10 6-20 6-28-2zM91 118c-11-10-21-10-30 0 10 8 20 8 30 0zM204 117c13-9 24-8 32 4-12 6-23 5-32-4z"></path>
+    <path class="crumbs" d="M42 130h2M54 124h2M69 134h2M87 127h2M103 132h2M198 128h2M214 132h2M226 125h2"></path>
+    <circle class="person c" cx="47" cy="80" r="17"></circle>
+    <path class="sofa" d="M20 131c5-34 46-36 58 0"></path>
+    <rect class="chair" x="129" y="76" width="53" height="42"></rect>
+    <path class="bowl-rim" d="M135 84h39M136 98h37M142 118v24M172 118v24"></path>
+    <path class="wind" d="M126 73c17-13 45-13 62 1M126 122c18 8 42 8 60 0"></path>
+  `),
+  西北雨: svgShell("鐵皮屋簷下搶收衣服插圖", `
+    <rect class="dark-window" x="37" y="36" width="186" height="74"></rect>
+    <path class="awning" d="M34 47h191l-16 29H48z"></path>
+    <path class="awning-line" d="M64 48l-9 27M96 48l-6 28M130 48l-3 28M164 48l4 28M198 48l7 27"></path>
+    <path class="rain" d="M55 91l-13 24M80 85l-14 28M108 92l-14 26M138 84l-15 30M169 91l-14 27M197 84l-15 30M218 92l-13 24"></path>
+    <path class="lamp-glow" d="M57 79c43 7 91 7 145 0"></path>
+    <path class="bowl-rim" d="M75 75c16 12 29 12 40 0 2 26-3 43-17 51-12-7-20-25-23-51z"></path>
+    <path class="bag" d="M128 76c14 10 27 10 40 0 0 22-8 39-23 50-13-10-18-27-17-50z"></path>
+    <path class="plate" d="M181 76c12 9 24 9 36 0"></path>
+    <path class="hand" d="M113 127c16-10 32-17 50-20 10-2 17 14 6 20-17 9-34 16-53 21-10 2-12-15-3-21z"></path>
+    <path class="wind" d="M61 64c23-7 46-7 69 0M145 65c22-8 41-8 59 0"></path>
+  `),
+  鬥跤手: svgShell("埕裡蒜頭與紅豆湯插圖", `
+    <ellipse class="shadow" cx="132" cy="143" rx="92" ry="8"></ellipse>
+    <path class="plate" d="M39 130c38-19 87-20 147-6"></path>
+    <path class="root" d="M52 114c8-10 22-8 27 2-7 11-22 11-27-2zM82 130c7-10 21-9 28 1-7 11-23 11-28-1zM112 113c9-11 23-8 28 3-8 11-23 10-28-3zM143 131c8-10 22-8 27 2-7 10-22 10-27-2z"></path>
+    <path class="root-line" d="M61 113c6 5 9 10 11 17M93 128c5 5 8 10 9 17M122 112c6 5 9 11 11 18M152 130c5 5 8 10 10 17"></path>
+    <path class="crumbs" d="M48 132h2M68 126h2M91 116h2M108 135h2M129 126h2M153 116h2M174 132h2"></path>
+    <path class="hand" d="M45 87c18 4 31 13 39 28 5 9-6 18-14 11-10-8-22-14-36-17-10-2-2-25 11-22z"></path>
+    <path class="hand" d="M120 84c-17 7-30 19-37 36-4 10 9 17 16 8 8-11 19-19 33-25 10-4 0-24-12-19z"></path>
+    <path class="bowl" d="M174 70h48c-4 28-13 42-25 42-14 0-21-14-23-42z"></path>
+    <path class="bowl-rim" d="M169 70c8-10 51-10 58 0-8 10-50 10-58 0z"></path>
+    <circle class="soft-a" cx="195" cy="68" r="13"></circle>
+    <path class="seed" d="M181 82h2M191 91h2M205 84h2M214 94h2"></path>
+    <path class="steam" d="M188 56c-7-9 8-11 2-22M208 57c-7-9 8-11 2-22"></path>
+  `),
 };
 
 const genericIllustration = svgShell("生活物件插圖", `
