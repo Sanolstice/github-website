@@ -27,6 +27,12 @@ const normalizeText = (value, fallback = "未提供") => {
   return fallback;
 };
 
+const normalizePublicText = (value, fallback = "未提供") =>
+  normalizeText(value, fallback)
+    .replace(/[（(]\s*ABB\s*[）)]/gi, "")
+    .replace(/\bABB\b\s*/gi, "")
+    .trim();
+
 const normalizeTags = (value) => {
   const isPublicTag = (tag) => !/(ABB|路線\s*A|巡熱詞|温若喬|社群來源|Threads|收詞)/i.test(tag);
 
@@ -80,7 +86,7 @@ const normalizeSourceMetadata = (note) => {
 const normalizeNote = (note = {}) => ({
   term: normalizeText(getNoteValue(note, ["term", "word", "title", "name", "詞", "詞目"])),
   pronunciation: normalizeText(getNoteValue(note, ["pronunciation", "reading", "romanization", "pinyin", "音讀", "台羅"]), "音讀未提供"),
-  definition: normalizeText(getNoteValue(note, ["definition", "meaning", "description", "explanation", "釋義"])?.本義 || getNoteValue(note, ["definition", "meaning", "description", "explanation", "釋義"]), "釋義未提供"),
+  definition: normalizePublicText(getNoteValue(note, ["definition", "meaning", "description", "explanation", "釋義"])?.本義 || getNoteValue(note, ["definition", "meaning", "description", "explanation", "釋義"]), "釋義未提供"),
   fieldNote: normalizeFieldNote(note),
   sensoryTags: normalizeTags(note?.sensoryTags || getNoteValue(note, ["tags", "sensoryCategory", "category", "分類"])),
   sourceMetadata: normalizeSourceMetadata(note),
@@ -560,6 +566,59 @@ const illustrationTemplates = {
     <circle class="soft-a" cx="195" cy="68" r="13"></circle>
     <path class="seed" d="M181 82h2M191 91h2M205 84h2M214 94h2"></path>
     <path class="steam" d="M188 56c-7-9 8-11 2-22M208 57c-7-9 8-11 2-22"></path>
+  `),
+  踅夜市: svgShell("夜市攤前木瓜牛奶與鹽酥雞插圖", `
+    <rect class="dark-window" x="38" y="38" width="184" height="87"></rect>
+    <path class="awning" d="M43 42h176l-12 29H55z"></path>
+    <path class="lamp-glow" d="M63 75c38 10 84 10 139 0"></path>
+    <circle class="lamp" cx="75" cy="58" r="9"></circle>
+    <circle class="lamp" cx="130" cy="57" r="9"></circle>
+    <circle class="lamp" cx="186" cy="58" r="9"></circle>
+    <path class="hand" d="M68 105c-15 3-27 10-36 22-6 8 5 18 13 11 10-8 21-13 34-16 10-2 1-25-11-22zM166 110c16 1 30 7 41 18 7 7-2 19-11 13-12-7-25-11-39-12-10-1-7-21 9-19z"></path>
+    <rect class="bowl-rim" x="74" y="78" width="38" height="54" rx="5"></rect>
+    <path class="stem" d="M91 79L83 48"></path>
+    <path class="bag" d="M147 77c12 12 39 12 51 0 8 28 4 50-12 67-12 6-29 5-39-2-10-18-11-39 0-65z"></path>
+    <path class="crumbs" d="M156 101h2M166 111h2M180 101h2M188 118h2"></path>
+    <circle class="person a" cx="114" cy="102" r="10"></circle>
+    <circle class="person b" cx="129" cy="98" r="11"></circle>
+    <circle class="person c" cx="211" cy="99" r="9"></circle>
+  `),
+  燒烘烘: svgShell("半夜床邊摸額頭插圖", `
+    <ellipse class="shadow" cx="132" cy="143" rx="84" ry="8"></ellipse>
+    <rect class="room" x="49" y="76" width="162" height="62"></rect>
+    <path class="sofa" d="M54 118c30-28 91-31 150-2v23H54z"></path>
+    <circle class="person b" cx="117" cy="72" r="16"></circle>
+    <path class="shoulders" d="M84 117c9-31 50-33 66 0"></path>
+    <circle class="person a" cx="82" cy="105" r="12"></circle>
+    <circle class="person c" cx="162" cy="104" r="12"></circle>
+    <path class="hand" d="M132 82c17 7 27 16 32 29 3 9-9 15-15 8-6-8-14-14-25-19-9-4-5-22 8-18z"></path>
+    <path class="lamp-glow" d="M144 106c11 9 24 11 38 5"></path>
+    <rect class="bucket red" x="190" y="89" width="14" height="26" rx="3"></rect>
+    <path class="plate" d="M184 118h27M194 85h10"></path>
+  `),
+  厝邊: svgShell("樓梯間端菜的厝邊插圖", `
+    <rect class="room" x="44" y="35" width="171" height="102"></rect>
+    <path class="window-line" d="M58 126h154M72 111h141M89 96h123M105 81h107"></path>
+    <path class="wood-line" d="M52 132L210 58M64 58h151"></path>
+    <ellipse class="shadow" cx="132" cy="142" rx="76" ry="8"></ellipse>
+    <path class="hand" d="M73 94c24 3 43 12 56 27 7 8-3 20-12 14-16-10-33-16-52-18-11-1-7-24 8-23zM188 94c-25 3-43 12-57 27-7 8 3 20 13 14 16-10 33-16 52-18 11-1 6-24-8-23z"></path>
+    <path class="bowl" d="M94 92h70c-5 28-17 43-35 43-19 0-30-15-35-43z"></path>
+    <path class="bowl-rim" d="M89 92c9-12 72-12 80 0-10 12-70 12-80 0z"></path>
+    <path class="plate" d="M96 86c14-9 45-10 65 0"></path>
+    <path class="plant-leaf" d="M116 102c11-8 22-7 31 3-12 5-22 4-31-3z"></path>
+  `),
+  死殗殗: svgShell("客廳沙發與未動的飯碗插圖", `
+    <rect class="room" x="42" y="38" width="175" height="98"></rect>
+    <rect class="dark-window" x="58" y="54" width="52" height="42"></rect>
+    <path class="window-line" d="M84 54v42M58 75h52"></path>
+    <rect class="sofa" x="90" y="101" width="76" height="37" rx="5"></rect>
+    <circle class="person c" cx="126" cy="77" r="17"></circle>
+    <path class="shoulders" d="M97 118c7-30 48-31 60 0"></path>
+    <path class="root-line" d="M113 91c11 7 24 7 36 0"></path>
+    <rect class="table" x="165" y="120" width="50" height="16"></rect>
+    <path class="bowl-rim" d="M177 111c7-8 28-8 35 0-7 8-28 8-35 0z"></path>
+    <path class="bowl" d="M180 111h29c-3 13-8 20-15 20-8 0-12-7-14-20z"></path>
+    <path class="lamp-glow" d="M57 120c29-9 54-9 75 0"></path>
   `),
 };
 
