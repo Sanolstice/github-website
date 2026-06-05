@@ -620,6 +620,85 @@ const illustrationTemplates = {
     <path class="bowl" d="M180 111h29c-3 13-8 20-15 20-8 0-12-7-14-20z"></path>
     <path class="lamp-glow" d="M57 120c29-9 54-9 75 0"></path>
   `),
+  食人夠夠: svgShell("飯桌前看新聞的阿公插圖", `
+    <rect class="room" x="39" y="36" width="184" height="101"></rect>
+    <rect class="dark-window" x="145" y="53" width="58" height="43"></rect>
+    <path class="window-line" d="M174 53v43M145 75h58"></path>
+    <rect class="table" x="49" y="116" width="104" height="20"></rect>
+    <circle class="person b" cx="91" cy="83" r="17"></circle>
+    <path class="shoulders" d="M62 125c7-31 49-32 61 0"></path>
+    <path class="root-line" d="M82 84c10 6 22 6 33 0M102 93l13 7"></path>
+    <path class="hand" d="M116 99c13 2 23 8 31 17 6 7-2 17-10 12-9-6-18-10-29-11-9-1-5-20 8-18z"></path>
+    <path class="bowl-rim" d="M64 107c8-9 31-9 39 0-8 9-31 9-39 0z"></path>
+    <path class="stem" d="M130 103l22-23"></path>
+    <circle class="person c" cx="45" cy="131" r="10"></circle>
+    <rect class="bucket blue" x="167" y="103" width="31" height="10" rx="3"></rect>
+  `),
+  膨疱: svgShell("紅白機手把與拇指水泡插圖", `
+    <ellipse class="shadow" cx="132" cy="143" rx="82" ry="8"></ellipse>
+    <rect class="room" x="62" y="67" width="136" height="60" rx="5"></rect>
+    <path class="window-line" d="M90 82h31M90 101h31M106 72v48"></path>
+    <circle class="bucket red" cx="156" cy="94" r="10"></circle>
+    <circle class="bucket red" cx="179" cy="94" r="10"></circle>
+    <path class="hand" d="M73 105c-20 3-33 13-40 29-4 9 10 16 16 7 7-10 16-16 29-19 10-2 7-19-5-17zM191 106c20 3 33 13 40 29 4 9-10 16-16 7-7-10-16-16-29-19-10-2-7-19 5-17z"></path>
+    <circle class="cheek" cx="181" cy="87" r="8"></circle>
+    <path class="wind" d="M62 70c-17-13-28-25-31-36M198 70c17-13 28-25 31-36"></path>
+    <path class="root-line" d="M151 94h10M174 94h10"></path>
+  `),
+  甜粅粅: svgShell("雜貨店玻璃罐糖果插圖", `
+    <ellipse class="shadow" cx="132" cy="143" rx="88" ry="8"></ellipse>
+    <rect class="table" x="42" y="120" width="176" height="18"></rect>
+    <rect class="bowl-rim" x="53" y="57" width="36" height="65" rx="5"></rect>
+    <rect class="bowl-rim" x="98" y="51" width="39" height="71" rx="5"></rect>
+    <rect class="bowl-rim" x="146" y="57" width="39" height="65" rx="5"></rect>
+    <path class="plate" d="M55 57h32M100 51h35M148 57h35"></path>
+    <circle class="bucket red" cx="70" cy="89" r="6"></circle>
+    <circle class="bucket yellow" cx="116" cy="81" r="6"></circle>
+    <circle class="bucket blue" cx="126" cy="98" r="5"></circle>
+    <circle class="bucket green" cx="163" cy="83" r="5"></circle>
+    <circle class="bucket yellow" cx="174" cy="100" r="5"></circle>
+    <path class="stem" d="M69 89l-13 21M116 81l-11 22M163 83l-9 20"></path>
+    <path class="hand" d="M198 92c-18 5-31 16-39 31-5 9 7 17 15 10 9-8 19-14 31-18 10-3 4-27-7-23z"></path>
+    <path class="crumbs" d="M64 104h2M76 98h2M106 107h2M131 89h2M156 103h2M178 90h2"></path>
+  `),
+  香貢貢: svgShell("巷子裡作客的飯菜香插圖", `
+    <rect class="room" x="37" y="48" width="184" height="83"></rect>
+    <path class="window-line" d="M54 75h33M106 72h34M160 70h38M54 103h33M106 101h34M160 99h38"></path>
+    <path class="lamp-glow" d="M158 82c16 11 33 11 50 0M162 112c15 8 30 8 45 0"></path>
+    <path class="steam" d="M73 59c-7-9 8-11 2-23M124 57c-7-9 8-11 2-23M184 55c-7-9 8-11 2-23"></path>
+    <ellipse class="shadow" cx="132" cy="143" rx="82" ry="8"></ellipse>
+    <circle class="person b" cx="104" cy="103" r="13"></circle>
+    <path class="shoulders" d="M83 137c5-24 36-24 44 0"></path>
+    <circle class="person c" cx="132" cy="114" r="10"></circle>
+    <path class="shoulders" d="M116 139c4-18 27-18 33 0"></path>
+    <rect class="bucket yellow" x="75" y="111" width="20" height="15" rx="2"></rect>
+    <path class="wind" d="M55 135c43-10 95-10 156 0"></path>
+  `),
+  油肭肭: svgShell("辦桌雞湯油亮亮插圖", `
+    <ellipse class="shadow" cx="132" cy="143" rx="91" ry="8"></ellipse>
+    <circle class="table" cx="127" cy="91" r="62"></circle>
+    <circle class="bowl-rim" cx="127" cy="91" r="49"></circle>
+    <path class="bowl" d="M86 88c15-28 69-28 84 0-8 34-75 34-84 0z"></path>
+    <path class="lamp-glow" d="M88 94c24 10 52 11 84 1M96 78c21-8 43-8 66 0"></path>
+    <path class="food soft-b" d="M106 78c10-17 34-19 48-3 12 15 5 36-16 42-25 7-45-16-32-39z"></path>
+    <path class="root-line" d="M123 73c5 15 15 25 31 31M111 93c14 4 28 4 43 0"></path>
+    <path class="plate" d="M174 120c20-13 41-11 58 4-17 18-39 22-62 10z"></path>
+    <path class="watermelon" d="M184 119c12-6 25-5 37 3-11 9-24 11-37 3z"></path>
+    <circle class="lamp" cx="103" cy="92" r="6"></circle>
+    <circle class="lamp" cx="151" cy="89" r="6"></circle>
+  `),
+  滑溜溜: svgShell("剛拖過的反光地板插圖", `
+    <rect class="room" x="39" y="42" width="184" height="97"></rect>
+    <path class="window-line" d="M57 124h147M62 104h136M69 84h122M78 64h104"></path>
+    <path class="lamp-glow" d="M71 118c33-9 72-10 116-3M88 96c25-7 54-7 88-2"></path>
+    <path class="wood-line" d="M47 42v97M59 42v97"></path>
+    <ellipse class="shadow" cx="132" cy="144" rx="83" ry="7"></ellipse>
+    <circle class="person b" cx="171" cy="74" r="13"></circle>
+    <path class="shoulders" d="M150 114c5-24 35-24 43 0"></path>
+    <path class="hand" d="M158 104c-18 7-30 17-38 31-5 8 7 16 15 9 9-8 19-14 31-18 9-3 3-26-8-22z"></path>
+    <path class="plate" d="M111 134c14-9 35-9 49 0"></path>
+    <path class="person c" d="M75 132c9-10 22-10 30 0M92 132c9-10 22-10 30 0"></path>
+  `),
 };
 
 const genericIllustration = svgShell("生活物件插圖", `
