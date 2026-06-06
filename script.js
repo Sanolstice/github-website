@@ -9,7 +9,12 @@ const nextPageButton = document.querySelector("[data-page-next]");
 const pageStatus = document.querySelector("[data-page-status]");
 
 const dataDirectory = "data/field-notes";
-const dataIndexPath = `${dataDirectory}/index.json`;
+const dataRequestVersion = Date.now().toString();
+const withDataCacheBuster = (path) => {
+  const separator = path.includes("?") ? "&" : "?";
+  return `${path}${separator}v=${dataRequestVersion}`;
+};
+const dataIndexPath = withDataCacheBuster(`${dataDirectory}/index.json`);
 const notesPerPage = 6;
 let allFieldNotes = [];
 let currentPage = 0;
@@ -829,8 +834,10 @@ const normalizeDataPaths = (payload) => {
     .map((file) => {
       const path = typeof file === "string" ? file : file?.path || file?.file || file?.url;
       if (!path) return "";
-      if (/^(https?:)?\/\//.test(path) || path.startsWith("/")) return path;
-      return `${dataDirectory}/${path}`;
+      if (/^(https?:)?\/\//.test(path) || path.startsWith("/")) {
+        return withDataCacheBuster(path);
+      }
+      return withDataCacheBuster(`${dataDirectory}/${path}`);
     })
     .filter(Boolean);
 };
