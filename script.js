@@ -666,7 +666,7 @@ const illustrationTemplates = {
     <path class="hand" d="M198 92c-18 5-31 16-39 31-5 9 7 17 15 10 9-8 19-14 31-18 10-3 4-27-7-23z"></path>
     <path class="crumbs" d="M64 104h2M76 98h2M106 107h2M131 89h2M156 103h2M178 90h2"></path>
   `),
-  香貢貢: svgShell("巷子裡作客的飯菜香插圖", `
+  芳貢貢: svgShell("巷子裡作客的飯菜香插圖", `
     <rect class="room" x="37" y="48" width="184" height="83"></rect>
     <path class="window-line" d="M54 75h33M106 72h34M160 70h38M54 103h33M106 101h34M160 99h38"></path>
     <path class="lamp-glow" d="M158 82c16 11 33 11 50 0M162 112c15 8 30 8 45 0"></path>
