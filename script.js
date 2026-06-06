@@ -699,6 +699,50 @@ const illustrationTemplates = {
     <path class="plate" d="M111 134c14-9 35-9 49 0"></path>
     <path class="person c" d="M75 132c9-10 22-10 30 0M92 132c9-10 22-10 30 0"></path>
   `),
+  雜插: svgShell("黃昏巷子裡揹小孩的婦人插圖", `
+    <rect class="room" x="38" y="39" width="184" height="97"></rect>
+    <rect class="dark-window" x="51" y="55" width="37" height="31"></rect>
+    <rect class="dark-window" x="174" y="50" width="34" height="29"></rect>
+    <path class="window-line" d="M69 55v31M51 70h37M191 50v29M174 64h34"></path>
+    <path class="lamp-glow" d="M53 83c10 7 23 7 34 0M176 77c9 7 20 7 30 0"></path>
+    <ellipse class="shadow" cx="132" cy="143" rx="79" ry="8"></ellipse>
+    <circle class="person b" cx="119" cy="76" r="15"></circle>
+    <path class="hair" d="M105 73c2-17 22-25 35-13 7 7 8 17 3 26-8-8-20-12-38-13z"></path>
+    <path class="shoulders" d="M91 134c4-38 45-51 65-18 4 7 6 14 7 22"></path>
+    <circle class="person c" cx="151" cy="88" r="11"></circle>
+    <path class="sofa" d="M139 101c16-7 31 3 35 19M138 101l21 37"></path>
+    <path class="hand" d="M101 105c-8 13-12 25-12 36M150 105c7 13 10 25 9 37"></path>
+    <path class="root-line" d="M128 79c8 2 14 7 18 13M136 89l8 1"></path>
+    <path class="wind" d="M45 119c28-8 49-8 65 0M168 112c18-7 35-6 50 2"></path>
+  `),
+  澹漉漉: svgShell("騎樓下淋濕大笑的學生插圖", `
+    <rect class="dark-window" x="37" y="36" width="186" height="99"></rect>
+    <path class="awning" d="M35 42h190l-14 27H49z"></path>
+    <path class="rain" d="M52 75l-16 31M76 72l-17 34M101 76l-15 30M177 74l-16 33M202 72l-17 35M220 83l-12 24"></path>
+    <path class="window-line" d="M39 114h181M48 125h164"></path>
+    <circle class="person a" cx="104" cy="84" r="18"></circle>
+    <circle class="person b" cx="153" cy="86" r="18"></circle>
+    <path class="hair" d="M85 82c2-23 31-29 39-7-15-2-27 1-39 7zM135 83c4-22 31-26 38-5-15-2-27 0-38 5z"></path>
+    <path class="shoulders" d="M72 137c8-32 49-34 62-2M124 136c7-30 47-31 59 1"></path>
+    <path class="root-line" d="M99 91c7 6 14 6 21 0M147 94c7 6 15 6 22 0"></path>
+    <path class="rain" d="M93 61l-5 14M112 60l-4 15M143 63l-5 14M163 61l-4 15"></path>
+    <path class="lamp-glow" d="M47 131c32-7 61-7 88 0M145 129c23-6 45-6 67 0"></path>
+  `),
+  勻勻仔: svgShell("扶牆慢慢走向沙發的老人插圖", `
+    <rect class="room" x="39" y="38" width="184" height="99"></rect>
+    <rect class="window" x="48" y="48" width="47" height="53"></rect>
+    <path class="window-line" d="M71 48v53M48 74h47"></path>
+    <path class="lamp-glow" d="M94 58c30 16 55 36 76 61M94 78c25 12 46 27 64 45"></path>
+    <rect class="sofa" x="166" y="100" width="49" height="35" rx="5"></rect>
+    <path class="wood-line" d="M39 38v99M45 38v99"></path>
+    <circle class="person b" cx="111" cy="75" r="14"></circle>
+    <path class="shoulders" d="M91 126c3-27 9-39 20-40 14-1 23 14 28 43"></path>
+    <path class="hand" d="M99 93c-16 4-28 12-37 24-6 8 4 17 12 12 10-7 20-12 31-15"></path>
+    <path class="stem" d="M132 105l-7 37M103 115l-4 27"></path>
+    <path class="plate" d="M93 142h13M119 142h14"></path>
+    <path class="wind" d="M142 125c8-3 15-3 22 0"></path>
+    <ellipse class="shadow" cx="132" cy="144" rx="83" ry="6"></ellipse>
+  `),
 };
 
 const genericIllustration = svgShell("生活物件插圖", `
