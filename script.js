@@ -748,6 +748,81 @@ const illustrationTemplates = {
     <path class="wind" d="M142 125c8-3 15-3 22 0"></path>
     <ellipse class="shadow" cx="132" cy="144" rx="83" ry="6"></ellipse>
   `),
+  霧嗄嗄: svgShell("診間裡聽得一頭霧水的祖孫插圖", `
+    <rect class="room" x="38" y="38" width="184" height="99"></rect>
+    <rect class="dark-window" x="155" y="47" width="52" height="43"></rect>
+    <path class="window-line" d="M181 47v43M155 69h52"></path>
+    <path class="root-line" d="M164 57c11 4 20 12 27 24M197 56c-10 4-19 12-27 25"></path>
+    <rect class="table" x="92" y="105" width="119" height="23"></rect>
+    <path class="plate" d="M113 99h42M126 94h48M151 101h37"></path>
+    <circle class="person b" cx="73" cy="83" r="16"></circle>
+    <path class="shoulders" d="M46 131c7-29 44-30 55 0"></path>
+    <circle class="person c" cx="111" cy="91" r="12"></circle>
+    <path class="shoulders" d="M91 132c5-22 33-23 42 0"></path>
+    <path class="dust" d="M57 61c13-8 25-8 37 0M99 70c10-6 20-6 29 1"></path>
+    <ellipse class="shadow" cx="132" cy="143" rx="86" ry="7"></ellipse>
+  `),
+  凊心: svgShell("年節圓桌上夾菜與紅包插圖", `
+    <ellipse class="shadow" cx="132" cy="143" rx="88" ry="8"></ellipse>
+    <circle class="table" cx="129" cy="91" r="61"></circle>
+    <circle class="bowl-rim" cx="129" cy="91" r="31"></circle>
+    <path class="food soft-b" d="M108 86c11-14 31-15 43-2 9 11 4 25-10 32-19 8-40-12-33-30z"></path>
+    <rect class="bucket red" x="170" y="108" width="35" height="21" rx="2"></rect>
+    <path class="hand" d="M43 86c20 0 37 7 50 20 7 7-1 19-10 14-14-8-29-12-46-12-10 0-8-22 6-22z"></path>
+    <path class="stem" d="M78 100l52-19M82 108l51-21"></path>
+    <path class="plate" d="M177 68c15-9 30-7 42 4-11 16-29 20-45 11z"></path>
+    <circle class="person c" cx="189" cy="55" r="11"></circle>
+    <path class="shoulders" d="M171 79c4-18 28-18 35 0"></path>
+  `),
+  心適: svgShell("中秋烤肉架與烤焦雞翅插圖", `
+    <ellipse class="shadow" cx="132" cy="143" rx="88" ry="8"></ellipse>
+    <circle class="bowl-rim" cx="126" cy="98" r="45"></circle>
+    <path class="window-line" d="M84 91h84M83 105h86M97 65l18 66M126 55v83M155 66l-18 65"></path>
+    <path class="food soft-b" d="M97 84c8-12 20-12 27-1-5 12-17 16-27 1zM128 91c8-13 21-13 29-1-6 13-19 16-29 1z"></path>
+    <path class="lamp-glow" d="M104 119c6-10 12-10 18 0M126 122c7-12 14-12 21 0M149 117c5-9 11-9 16 0"></path>
+    <path class="hand" d="M48 79c18 3 32 12 43 27 6 8-5 18-13 11-11-9-23-15-37-17-10-2-6-23 7-21z"></path>
+    <path class="stem" d="M79 99l35-29M84 105l36-28"></path>
+    <circle class="person a" cx="183" cy="66" r="10"></circle>
+    <circle class="person b" cx="205" cy="72" r="9"></circle>
+    <path class="shoulders" d="M169 88c4-15 23-15 28 0M193 92c3-14 20-14 25 0"></path>
+  `),
+  烏趖趖: svgShell("田邊水龍頭清洗泥腳插圖", `
+    <ellipse class="shadow" cx="132" cy="143" rx="91" ry="8"></ellipse>
+    <path class="stem" d="M61 49v61M61 59h31M91 59v19"></path>
+    <path class="wind" d="M91 77c10 4 17 11 21 21"></path>
+    <circle class="person b" cx="117" cy="73" r="14"></circle>
+    <path class="shoulders" d="M91 113c7-25 36-29 51-8"></path>
+    <path class="hand" d="M104 99c-14 8-23 19-27 34M129 99c9 10 14 21 15 34"></path>
+    <path class="root" d="M81 128c11-8 25-7 36 2-8 13-27 14-36-2z"></path>
+    <path class="stem" d="M155 72v58M175 75v55"></path>
+    <path class="root-line" d="M151 105c8 5 17 5 26 0M151 116c8 5 17 5 26 0"></path>
+    <circle class="person c" cx="166" cy="57" r="12"></circle>
+    <path class="shoulders" d="M146 88c6-20 33-20 40 0"></path>
+    <path class="rain" d="M94 82l-7 16M101 89l-6 15M110 94l-5 13"></path>
+  `),
+  罩霧: svgShell("濃霧山路上的祖孫摩托車插圖", `
+    <rect class="window" x="35" y="34" width="190" height="99"></rect>
+    <path class="room" d="M35 98c25-19 48-22 69-9 25-23 54-25 87-6 13-8 24-9 34-5v55H35z"></path>
+    <path class="dust" d="M43 57c31-12 60-11 87 2M132 52c27-10 54-8 82 5M50 77c25-8 47-7 68 2M157 73c21-7 40-6 58 2"></path>
+    <path class="wood-line" d="M48 132c44-14 92-16 148-7"></path>
+    <circle class="lamp" cx="118" cy="114" r="9"></circle>
+    <circle class="person b" cx="133" cy="83" r="11"></circle>
+    <circle class="person c" cx="150" cy="91" r="9"></circle>
+    <path class="sofa" d="M111 119c4-26 33-34 52-14 6 6 9 13 10 22"></path>
+    <path class="wind" d="M116 111l-24 19M147 111l28 17M103 128h79"></path>
+    <path class="lamp-glow" d="M108 114c-19-8-37-7-54 3M108 121c-21-2-39 2-54 11"></path>
+  `),
+  頂真: svgShell("老師傅用木印壓紅龜粿插圖", `
+    <ellipse class="shadow" cx="132" cy="143" rx="91" ry="8"></ellipse>
+    <rect class="table" x="42" y="112" width="176" height="23"></rect>
+    <path class="hand" d="M74 60c18 6 31 18 38 35 4 10-9 17-16 8-8-11-18-19-31-24-10-4-4-23 9-19zM186 61c-18 5-31 17-39 34-4 10 8 18 16 9 8-11 19-19 32-24 10-4 4-23-9-19z"></path>
+    <rect class="wood" x="104" y="63" width="54" height="45" rx="4"></rect>
+    <path class="wood-line" d="M114 73h34M114 85h34M120 96h22"></path>
+    <path class="food soft-b" d="M99 110c8-15 25-20 39-11 12-11 31-6 37 10-14 18-60 19-76 1z"></path>
+    <path class="root-line" d="M112 108c9-7 19-7 28 0M124 101v18M143 107c7-5 14-5 21 0"></path>
+    <path class="bowl-rim" d="M50 103c10-13 39-13 49 0-11 12-38 12-49 0z"></path>
+    <path class="plate" d="M177 101c12-9 27-8 38 2-10 13-27 15-40 5z"></path>
+  `),
 };
 
 const genericIllustration = svgShell("生活物件插圖", `
