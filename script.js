@@ -12,7 +12,7 @@ const withDataCacheBuster = (path) => {
   return `${path}${separator}v=${dataRequestVersion}`;
 };
 const dataIndexPath = withDataCacheBuster(`${dataDirectory}/index.json`);
-const notesPerPage = 8;
+const notesPerPage = 9;
 let allFieldNotes = [];
 let currentPage = 0;
 
