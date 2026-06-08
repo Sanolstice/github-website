@@ -3,10 +3,7 @@ const navToggle = document.querySelector("[data-nav-toggle]");
 const navLinks = [...document.querySelectorAll(".site-nav a")];
 const sections = [...document.querySelectorAll("main section[id]")];
 const notesGrid = document.querySelector("[data-notes-grid]");
-const pagination = document.querySelector("[data-pagination]");
-const prevPageButton = document.querySelector("[data-page-prev]");
-const nextPageButton = document.querySelector("[data-page-next]");
-const pageStatus = document.querySelector("[data-page-status]");
+const paginationControls = [...document.querySelectorAll("[data-pagination]")];
 
 const dataDirectory = "data/field-notes";
 const dataRequestVersion = Date.now().toString();
@@ -15,7 +12,7 @@ const withDataCacheBuster = (path) => {
   return `${path}${separator}v=${dataRequestVersion}`;
 };
 const dataIndexPath = withDataCacheBuster(`${dataDirectory}/index.json`);
-const notesPerPage = 6;
+const notesPerPage = 8;
 let allFieldNotes = [];
 let currentPage = 0;
 
@@ -125,23 +122,90 @@ const getPageNotes = (page) => {
   return allFieldNotes.slice(startIndex, startIndex + notesPerPage);
 };
 
+const getVisiblePageItems = (current, total) => {
+  if (total <= 7) return Array.from({ length: total }, (_, index) => index);
+
+  const visible = new Set([0, total - 1, current - 1, current, current + 1]);
+
+  if (current <= 2) {
+    [1, 2, 3].forEach((page) => visible.add(page));
+  }
+
+  if (current >= total - 3) {
+    [total - 4, total - 3, total - 2].forEach((page) => visible.add(page));
+  }
+
+  const pages = [...visible].filter((page) => page >= 0 && page < total).sort((a, b) => a - b);
+  const items = [];
+
+  pages.forEach((page, index) => {
+    if (index > 0 && page - pages[index - 1] > 1) {
+      items.push("ellipsis");
+    }
+
+    items.push(page);
+  });
+
+  return items;
+};
+
+const renderPageList = (container, totalPages) => {
+  container.textContent = "";
+
+  getVisiblePageItems(currentPage, totalPages).forEach((item) => {
+    if (item === "ellipsis") {
+      const ellipsis = document.createElement("span");
+      ellipsis.className = "page-ellipsis";
+      ellipsis.textContent = "…";
+      container.append(ellipsis);
+      return;
+    }
+
+    const pageButton = document.createElement("button");
+    pageButton.className = "page-number";
+    pageButton.type = "button";
+    pageButton.textContent = String(item + 1);
+    pageButton.dataset.pageIndex = String(item);
+    pageButton.setAttribute("aria-label", `前往第 ${item + 1} 頁`);
+
+    if (item === currentPage) {
+      pageButton.disabled = true;
+      pageButton.setAttribute("aria-current", "page");
+    }
+
+    container.append(pageButton);
+  });
+};
+
 const updatePaginationControls = () => {
-  if (!pagination) return;
+  if (!paginationControls.length) return;
 
   const totalPages = getTotalPages();
-  pagination.hidden = !allFieldNotes.length;
 
-  if (pageStatus) {
-    pageStatus.textContent = `第 ${currentPage + 1} / ${totalPages} 頁`;
-  }
+  paginationControls.forEach((pagination) => {
+    pagination.hidden = !allFieldNotes.length;
 
-  if (prevPageButton) {
-    prevPageButton.disabled = currentPage === 0;
-  }
+    const pageStatus = pagination.querySelector("[data-page-status]");
+    const prevPageButton = pagination.querySelector("[data-page-prev]");
+    const nextPageButton = pagination.querySelector("[data-page-next]");
+    const pageList = pagination.querySelector("[data-page-list]");
 
-  if (nextPageButton) {
-    nextPageButton.disabled = currentPage >= totalPages - 1;
-  }
+    if (pageStatus) {
+      pageStatus.textContent = `第 ${currentPage + 1} / ${totalPages} 頁`;
+    }
+
+    if (prevPageButton) {
+      prevPageButton.disabled = currentPage === 0;
+    }
+
+    if (nextPageButton) {
+      nextPageButton.disabled = currentPage >= totalPages - 1;
+    }
+
+    if (pageList) {
+      renderPageList(pageList, totalPages);
+    }
+  });
 };
 
 const renderCurrentPage = () => {
@@ -149,6 +213,15 @@ const renderCurrentPage = () => {
   currentPage = Math.min(Math.max(currentPage, 0), totalPages - 1);
   renderFieldNotes(getPageNotes(currentPage), currentPage * notesPerPage);
   updatePaginationControls();
+};
+
+const goToPage = (page, shouldScroll = false) => {
+  currentPage = page;
+  renderCurrentPage();
+
+  if (shouldScroll) {
+    notesGrid?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 };
 
 const createField = (label, value, extraClass = "") => {
@@ -1001,14 +1074,28 @@ navToggle?.addEventListener("click", () => {
   navToggle.setAttribute("aria-expanded", String(!isOpen));
 });
 
-prevPageButton?.addEventListener("click", () => {
-  currentPage -= 1;
-  renderCurrentPage();
-});
+paginationControls.forEach((pagination) => {
+  pagination.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
 
-nextPageButton?.addEventListener("click", () => {
-  currentPage += 1;
-  renderCurrentPage();
+    const totalPages = getTotalPages();
+
+    if (target.matches("[data-page-prev]")) {
+      goToPage(Math.max(0, currentPage - 1), true);
+      return;
+    }
+
+    if (target.matches("[data-page-next]")) {
+      goToPage(Math.min(totalPages - 1, currentPage + 1), true);
+      return;
+    }
+
+    const pageIndex = target.dataset.pageIndex;
+    if (pageIndex) {
+      goToPage(Number(pageIndex), true);
+    }
+  });
 });
 
 navLinks.forEach((link) => {
