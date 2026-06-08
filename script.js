@@ -823,6 +823,34 @@ const illustrationTemplates = {
     <path class="bowl-rim" d="M50 103c10-13 39-13 49 0-11 12-38 12-49 0z"></path>
     <path class="plate" d="M177 101c12-9 27-8 38 2-10 13-27 15-40 5z"></path>
   `),
+  爍爁: svgShell("颱風夜窗邊看閃電的祖孫插圖", `
+    <rect class="dark-window" x="38" y="35" width="184" height="101"></rect>
+    <rect class="window" x="58" y="43" width="111" height="79"></rect>
+    <path class="window-line" d="M113 43v79M58 82h111"></path>
+    <path class="hit-lines" d="M154 37l-31 36 19-1-39 54 12-39-19 3z"></path>
+    <path class="lamp-glow" d="M82 120c26-18 58-23 94-15M72 101c27-16 56-19 88-8"></path>
+    <circle class="person b" cx="74" cy="101" r="14"></circle>
+    <path class="shoulders" d="M50 135c7-25 40-25 49 0"></path>
+    <circle class="person c" cx="101" cy="110" r="10"></circle>
+    <path class="shoulders" d="M84 137c4-18 28-18 34 0"></path>
+    <path class="rain" d="M181 51l-10 24M199 60l-12 29M205 94l-10 23"></path>
+    <ellipse class="shadow" cx="132" cy="143" rx="84" ry="7"></ellipse>
+  `),
+  軟膏膏: svgShell("夜路上爸爸揹著睡著小孩插圖", `
+    <rect class="dark-window" x="38" y="38" width="184" height="98"></rect>
+    <path class="lamp-glow" d="M157 67c18 11 36 11 55 0M166 94c15 8 30 8 45 0"></path>
+    <circle class="lamp" cx="178" cy="61" r="10"></circle>
+    <circle class="lamp" cx="202" cy="87" r="8"></circle>
+    <ellipse class="shadow" cx="132" cy="143" rx="84" ry="8"></ellipse>
+    <circle class="person b" cx="120" cy="75" r="15"></circle>
+    <path class="shoulders" d="M93 134c4-36 42-48 62-20 5 7 8 15 9 24"></path>
+    <circle class="person c" cx="148" cy="87" r="11"></circle>
+    <path class="sofa" d="M136 103c17-7 32 4 35 21M137 103l20 35"></path>
+    <path class="hand" d="M102 101c-9 13-14 26-15 40M148 104c8 12 12 24 12 38"></path>
+    <path class="stem" d="M125 112l-8 30M151 118l12 24"></path>
+    <path class="plate" d="M111 142h13M159 142h12"></path>
+    <path class="crumbs" d="M174 133h2M183 128h2M193 134h2"></path>
+  `),
 };
 
 const genericIllustration = svgShell("生活物件插圖", `
