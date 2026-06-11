@@ -391,7 +391,7 @@ h1 {
   position: relative;
   display: grid;
   min-height: 500px;
-  grid-template-rows: 176px auto auto 1fr auto;
+  grid-template-rows: auto auto auto 1fr auto;
   gap: 14px;
   padding: 16px 18px 22px;
   border: 1px solid rgba(45, 52, 46, 0.15);
@@ -444,8 +444,10 @@ h1 {
 }
 
 .note-illustration {
+  position: relative;
   display: grid;
-  min-height: 176px;
+  width: 100%;
+  aspect-ratio: 3 / 2;
   place-items: center;
   overflow: hidden;
   border: 1px solid rgba(45, 52, 46, 0.13);
@@ -456,193 +458,32 @@ h1 {
   background-size: 22px 22px;
 }
 
-.spot-svg {
+.note-image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  min-height: 170px;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 180ms ease;
 }
 
-.spot-svg * {
-  vector-effect: non-scaling-stroke;
+.note-illustration.is-loaded .note-image {
+  opacity: 1;
 }
 
-.paper-base {
-  fill: rgba(255, 250, 240, 0.72);
-  stroke: rgba(45, 52, 46, 0.14);
+.note-image-placeholder {
+  z-index: 1;
+  padding: 8px 12px;
+  color: rgba(45, 52, 46, 0.55);
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  transition: opacity 180ms ease;
 }
 
-.spot-svg path,
-.spot-svg rect,
-.spot-svg circle,
-.spot-svg ellipse {
-  stroke: #3f4a40;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.shadow {
-  fill: rgba(91, 97, 84, 0.13);
-  stroke: none;
-}
-
-.root,
-.radish,
-.food,
-.wood,
-.bag,
-.watermelon,
-.bucket,
-.plant-leaf,
-.person,
-.chair {
-  fill: #dcbf8d;
-}
-
-.root-a,
-.wood {
-  fill: #c99b70;
-}
-
-.radish,
-.bag {
-  fill: #f2e7cf;
-}
-
-.leaf,
-.plant-leaf,
-.stem {
-  fill: #8ea76e;
-}
-
-.leaf,
-.plant-leaf {
-  stroke: #526b4e;
-}
-
-.cut-line,
-.root-line,
-.bag-line,
-.wood-line,
-.window-line,
-.shelf,
-.sign-line,
-.hanger,
-.wind,
-.dust,
-.rain,
-.hit-lines,
-.steam,
-.lamp-glow,
-.seed,
-.plate {
-  fill: none;
-}
-
-.bowl {
-  fill: #e7c98d;
-}
-
-.bowl-rim,
-.plate {
-  fill: #f7f0df;
-}
-
-.soft-a {
-  fill: #d6a36c;
-}
-
-.soft-b {
-  fill: #e2bd79;
-}
-
-.soft-c {
-  fill: #cfa071;
-}
-
-.window,
-.dark-window,
-.room,
-.shop {
-  fill: #d7e7e8;
-}
-
-.sill,
-.table,
-.stall {
-  fill: #ddc394;
-}
-
-.hand,
-.sofa,
-.face,
-.ear,
-.neck {
-  fill: #e5bda5;
-}
-
-.hair {
-  fill: #8b7668;
-}
-
-.cheek {
-  fill: #cc756f;
-  stroke: rgba(111, 79, 69, 0.38);
-}
-
-.crumbs,
-.seed {
-  stroke-width: 4;
-}
-
-.hammer {
-  fill: #8a9489;
-}
-
-.awning {
-  fill: #e6c36f;
-}
-
-.person.a,
-.bucket.red {
-  fill: #bd776b;
-}
-
-.person.b,
-.bucket.green {
-  fill: #9dbb83;
-}
-
-.person.c,
-.bucket.blue {
-  fill: #78a8bd;
-}
-
-.person.d,
-.bucket.yellow {
-  fill: #e6c36f;
-}
-
-.shoulders {
-  fill: rgba(251, 244, 232, 0.82);
-}
-
-.lamp {
-  fill: #f1d477;
-}
-
-.watermelon {
-  fill: #d56d65;
-}
-
-.watermelon-rind {
-  fill: none;
-  stroke: #6f985f;
-  stroke-width: 8;
-}
-
-.pot {
-  fill: #c58c72;
+.note-illustration.is-loaded .note-image-placeholder {
+  opacity: 0;
 }
 
 .note-card-top {

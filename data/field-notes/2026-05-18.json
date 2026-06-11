@@ -27,7 +27,7 @@
         "脈絡": ""
       },
       "田調筆記": "過年前的下午，阿嬤把所有的棉被翻出來曬。傍晚收進來，一床一床拍平、摺好、疊回櫃子。最後一床壓進去，她後退一步看了看，嘴角微微動一下，說「按呢就四序矣」。整個下午的灰塵和陽光味，都關進了櫃子裡。",
-      "插圖_prompt": "手繪水彩繪本插畫，參考台灣繪本作家孫心瑜、日本繪本作家酒井駒子的童書質感。米色老紙質背景，看得到紙纖維與輕微歲月痕跡。絕對不要照片寫實感、不要 3D、不要乾淨的數位插畫。\n\n畫面用四個小物件平均構圖，像舊筆記本的一頁：左上是一床疊得方方正正的棉被，邊角整齊，米色帶碎花；右上是一雙手在拍另一床棉被，動作有點模糊，手邊揚起一點細小灰塵；左下是一個打開的木櫃，裡面分層疊著乾淨衣物和棉被；右下是一扇窗戶，傍晚的光從外面斜進來，落在木地板上。物件之間留白多，不要塞滿。\n\n線條是手繪細鉛筆與針筆線，不平整、有時斷裂。顏色是水彩淡彩，邊緣有水漬暈染，筆觸看得見。色調柔和降彩度，主色：米黃、淡橘、灰綠、深棕。氛圍：傍晚整理完棉被，家裡每樣東西都歸位了。\n\nwatercolor illustration, children's book style, hand-drawn loose linework, paper texture, muted palette, imperfect brushwork, scrapbook composition.\n\nNegative prompt: photorealistic, 3D render, digital painting, vector art, hyperrealistic, glossy, cinematic lighting.\n\n畫面不要任何文字。",
+      "插圖_prompt": "手繪感 SVG 插畫，適合網頁使用。線條有輕微抖動、偶爾斷裂，接近速寫感。顏色以平塗為主，仿水彩薄塗效果，邊緣不均勻。背景留白或極淡米色。\n\n場景：傍晚的房間，一雙手正把最後一床棉被壓進木櫃，櫃裡的衣物棉被分層疊得整整齊齊；窗外斜光落在木地板上。構圖以「手收進櫃」的動作和整齊層次為焦點。\n\n色調降彩度柔和：米黃、淡橘、灰綠、深棕。氛圍：傍晚整理完，家裡每樣東西都歸位了。\n\nNegative prompt: photorealistic, 3D render, digital painting, vector art, hyperrealistic, glossy, cinematic lighting.\n\n畫面不要任何文字。",
       "建立日期": "2026-05-18"
     },
     {
@@ -56,7 +56,7 @@
         "脈絡": "與已收的「日頭赤焱焱」「軟晡」並列，組成台灣光線地圖三部曲：正午烈日（赤焱焱）、被太陽曬白的物件（白鑠鑠）、傍晚變軟的光（軟晡）。"
       },
       "田調筆記": "開學第一天，新買的制服掛在椅背上，白鑠鑠的，連衣領都還沒被汗濕過。媽媽前一晚燙過，皺褶還挺著。早上穿上身，硬得像紙板。走進校門才發現，學長學姐的襯衫都已經奶白色了，只有我們這群新生，遠遠看過去是一排刺眼的白。",
-      "插圖_prompt": "手繪水彩繪本插畫，參考台灣繪本作家孫心瑜、日本繪本作家酒井駒子的童書質感。米色老紙質背景，看得到紙纖維與輕微歲月痕跡。絕對不要照片寫實感、不要 3D、不要乾淨的數位插畫。\n\n畫面用四個小物件平均構圖，像舊筆記本的一頁：左上是一件新買的白襯衫掛在木椅椅背上，硬硬挺挺的，邊緣被晨光照得幾乎透白；右上是一個熨斗放在墊布上，餘溫未散，線圈延長到桌邊；左下是一個新書包擺在地板上，肩帶整齊，皮料還閃著一點光；右下是另一件舊的奶白色襯衫掛在窗邊衣架上，顏色發黃帶皺，襯托新舊對比。物件之間留白多，不要塞滿。\n\n線條是手繪細鉛筆與針筆線，不平整、有時斷裂。顏色是水彩淡彩，邊緣有水漬暈染，筆觸看得見。色調柔和降彩度，主色：霧白、淡藍、米黃、淺灰。氛圍：開學第一天的清晨，新制服還是硬的，整個人也是。\n\nwatercolor illustration, children's book style, hand-drawn loose linework, paper texture, muted palette, imperfect brushwork, scrapbook composition.\n\nNegative prompt: photorealistic, 3D render, digital painting, vector art, hyperrealistic, glossy, cinematic lighting.\n\n畫面不要任何文字。",
+      "插圖_prompt": "手繪感 SVG 插畫，適合網頁使用。線條有輕微抖動、偶爾斷裂，接近速寫感。顏色以平塗為主，仿水彩薄塗效果，邊緣不均勻。背景留白或極淡米色。\n\n場景：開學清晨，一件新買的白襯衫掛在木椅背上，硬挺發白，晨光照得幾乎透白；旁邊衣架上一件舊的、發黃奶白的襯衫成對比。構圖取局部，新舊白的對照。\n\n色調降彩度柔和：霧白、淡藍、米黃、淺灰。氛圍：開學第一天，新制服還是硬的，整個人也是。\n\nNegative prompt: photorealistic, 3D render, digital painting, vector art, hyperrealistic, glossy, cinematic lighting.\n\n畫面不要任何文字。",
       "建立日期": "2026-05-18"
     }
   ]

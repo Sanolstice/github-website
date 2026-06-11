@@ -27,7 +27,7 @@
         "脈絡": ""
       },
       "田調筆記": "家門前的小巷，下午三四點曬得人不敢出去。等到光開始斜、影子拉長，阿公才把椅子搬出來坐。鄰居的貓也在這時候出現，趴在騎樓矮牆上。那個時候叫軟晡——日頭氣勢已經走了，天還沒暗。整條巷子都鬆了一口氣。",
-      "插圖_prompt": "手繪水彩繪本插畫，參考台灣繪本作家孫心瑜、日本繪本作家酒井駒子的童書質感。米色老紙質背景，看得到紙纖維與輕微歲月痕跡。絕對不要照片寫實感、不要 3D、不要乾淨的數位插畫。\n\n畫面用四個小物件平均構圖，像舊筆記本的一頁：左上是一張搬到門口的舊木椅，椅背有長長的斜影落在地上；右上是一隻橘色的貓，趴在騎樓矮牆上，眼睛半閉；左下是老房子騎樓的圓柱，柱側有傍晚斜光打過來；右下是地板磚上一大塊模糊的光影，邊緣暈開，像陽光正在變軟。物件之間留白多，不要塞滿。\n\n線條是手繪細鉛筆與針筆線，不平整、有時斷裂。顏色是水彩淡彩，邊緣有水漬暈染，筆觸看得見。色調柔和降彩度，主色：淡橘、米黃、霧灰、深棕。氛圍：傍晚光線變軟，整條巷子鬆了一口氣。\n\nwatercolor illustration, children's book style, hand-drawn loose linework, paper texture, muted palette, imperfect brushwork, scrapbook composition.\n\nNegative prompt: photorealistic, 3D render, digital painting, vector art, hyperrealistic, glossy, cinematic lighting.\n\n畫面不要任何文字。",
+      "插圖_prompt": "手繪感 SVG 插畫，適合網頁使用。線條有輕微抖動、偶爾斷裂，接近速寫感。顏色以平塗為主，仿水彩薄塗效果，邊緣不均勻。背景留白或極淡米色。\n\n場景：傍晚的騎樓，一張搬出來的舊木椅拖著長長的斜影，一隻橘貓趴在矮牆上半閉著眼，斜光從柱間打進來、在地磚上化成一塊變軟的光。構圖橫向，重點在「變軟的光」。\n\n色調降彩度柔和：淡橘、米黃、霧灰、深棕。氛圍：傍晚光線變軟，整條巷子鬆了一口氣。\n\nNegative prompt: photorealistic, 3D render, digital painting, vector art, hyperrealistic, glossy, cinematic lighting.\n\n畫面不要任何文字。",
       "建立日期": "2026-05-17"
     },
     {
@@ -56,7 +56,7 @@
         "脈絡": ""
       },
       "田調筆記": "暑假的中午，外面沒有人。連狗都不見了。柏油路面的熱氣一陣一陣往上竄，公車站牌在那裡站著，沒有人等。大人說「日頭赤焱焱」，說這個時候出去是在找死。我趴在窗台往外看，整條街靜著，只有一輛機車遠遠駛過，司機縮著頭。",
-      "插圖_prompt": "手繪水彩繪本插畫，參考台灣繪本作家孫心瑜、日本繪本作家酒井駒子的童書質感。米色老紙質背景，看得到紙纖維與輕微歲月痕跡。絕對不要照片寫實感、不要 3D、不要乾淨的數位插畫。\n\n畫面用四個小物件平均構圖，像舊筆記本的一頁：左上是一個空蕩蕩的公車站牌，站在大太陽底下，四周沒有人；右上是一扇窗，窗台上有一雙手趴著往外看，只露出眼睛；左下是一雙涼鞋擺在門邊沒人穿，地板磚很白很燙的感覺；右下是一台舊電扇，扇葉在旋轉，風向紙條飄著。物件之間留白多，不要塞滿。\n\n線條是手繪細鉛筆與針筆線，不平整、有時斷裂。顏色是水彩淡彩，邊緣有水漬暈染，筆觸看得見。色調柔和降彩度，主色：米黃、淡橘、霧白、淺藍。氛圍：暑假正午，人都躲起來了，整條街只剩太陽。\n\nwatercolor illustration, children's book style, hand-drawn loose linework, paper texture, muted palette, imperfect brushwork, scrapbook composition.\n\nNegative prompt: photorealistic, 3D render, digital painting, vector art, hyperrealistic, glossy, cinematic lighting.\n\n畫面不要任何文字。",
+      "插圖_prompt": "手繪感 SVG 插畫，適合網頁使用。線條有輕微抖動、偶爾斷裂，接近速寫感。顏色以平塗為主，仿水彩薄塗效果，邊緣不均勻。背景留白或極淡米色。\n\n場景：正午空蕩的街，一個公車站牌孤零零站在大太陽底下，沒有人等；近景一扇窗的窗台上趴著一雙手和半張臉往外看。構圖留白多，強調空與熱。\n\n色調降彩度柔和：米黃、淡橘、霧白、淺藍。氛圍：暑假正午，人都躲起來了，整條街只剩太陽。\n\nNegative prompt: photorealistic, 3D render, digital painting, vector art, hyperrealistic, glossy, cinematic lighting.\n\n畫面不要任何文字。",
       "建立日期": "2026-05-17"
     }
   ]

@@ -1,0 +1,12 @@
+{
+  "name": "taiwan-sensory-archive",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "generate-images": "node scripts/generate-images.js",
+    "build": "python3 scripts/build-site.py"
+  }
+}
