@@ -6,7 +6,7 @@ const notesGrid = document.querySelector("[data-notes-grid]");
 const paginationControls = [...document.querySelectorAll("[data-pagination]")];
 
 const dataDirectory = "data/field-notes";
-const generatedImagesDirectory = "/generated-images";
+const generatedImagesDirectory = "generated-images";
 const dataRequestVersion = Date.now().toString();
 const withDataCacheBuster = (path) => {
   const separator = path.includes("?") ? "&" : "?";
@@ -98,10 +98,7 @@ const normalizeImageUrl = (note) => {
     }
 
     const localImage = explicitImage.replace(/^\.?\//, "").replace(/^public\//, "");
-    const imagePath = localImage.startsWith("generated-images/")
-      ? `/${localImage}`
-      : explicitImage;
-    return withDataCacheBuster(imagePath);
+    return withDataCacheBuster(localImage);
   }
 
   const id = normalizeText(getNoteValue(note, ["id", "slug"]), "");

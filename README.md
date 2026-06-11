@@ -23,7 +23,7 @@
 - `id`：每筆資料的穩定識別，也是預設圖片檔名。
 - `插圖_prompt`：手動或選用自動產圖時使用的既有 prompt。
 - `image`：選填。沒有此欄位時，前端自動使用
-  `/generated-images/{id}.png`。
+  `generated-images/{id}.png`。
 - 圖片 alt text 優先使用 `alt`、`title`、`description`，最後使用
   `詞目`。
 
@@ -48,7 +48,9 @@ npm run build
 
 `npm run build` 會更新 `data/field-notes/index.json`，並把
 `public/generated-images/` 同步到網站實際提供的 `generated-images/`。
-前端會以 `/generated-images/{id}.png` 讀取圖片。
+前端會以相對路徑 `generated-images/{id}.png` 讀取圖片。這樣在 GitHub
+Pages 的 `/github-website/` 子路徑部署時，圖片會正確解析為
+`/github-website/generated-images/{id}.png`。
 
 若圖片需要重做，替換或刪除
 `public/generated-images/{id}.png`，再執行 `npm run build`。
