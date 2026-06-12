@@ -14,6 +14,8 @@ const promptSuffix = "No text, no logo, no watermark, no UI elements, no caption
 const supportedImageExtensions = new Set([".png", ".webp", ".jpg", ".jpeg"]);
 const defaultMaxImagesPerRun = 3;
 const dryRun = process.argv.includes("--dry-run");
+const idPrefixArgument = process.argv.find((argument) => argument.startsWith("--id-prefix="));
+const idPrefix = idPrefixArgument?.slice("--id-prefix=".length).trim() || "";
 
 if (existsSync(path.join(rootDirectory, ".env")) && typeof process.loadEnvFile === "function") {
   process.loadEnvFile(path.join(rootDirectory, ".env"));
@@ -174,6 +176,16 @@ const main = async () => {
   const maxImagesPerRun = getMaxImagesPerRun();
   console.log(`[config] 本次最多呼叫 Images API ${maxImagesPerRun} 次。`);
   const records = await readDailyFiles();
+  const selectedRecords = idPrefix
+    ? records.filter(({ date, entry, index }) =>
+        getStableId(entry, date, index).startsWith(idPrefix)
+      )
+    : records;
+
+  if (idPrefix) {
+    console.log(`[config] 僅處理 ID 前綴 ${idPrefix}，共 ${selectedRecords.length} 筆。`);
+  }
+
   const summary = {
     generated: 0,
     apiCalls: 0,
@@ -183,7 +195,7 @@ const main = async () => {
     limitReached: false,
   };
 
-  for (const { date, entry, fileName, index } of records) {
+  for (const { date, entry, fileName, index } of selectedRecords) {
     const label = getStableId(entry, date, index);
 
     try {
