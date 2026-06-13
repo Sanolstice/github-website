@@ -7,6 +7,12 @@
   },
   "scripts": {
     "generate-images": "node scripts/generate-images.js",
+    "optimize-images": "node scripts/optimize-images.js",
+    "build:data": "python3 scripts/build-public-data.py",
+    "build:deploy": "python3 scripts/build-deploy.py",
     "build": "python3 scripts/build-site.py"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
   }
 }

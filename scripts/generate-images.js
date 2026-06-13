@@ -5,9 +5,8 @@ import { fileURLToPath } from "node:url";
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const rootDirectory = path.resolve(scriptDirectory, "..");
-const dataDirectory = path.join(rootDirectory, "data", "field-notes");
-const publicGeneratedImagesDirectory = path.join(rootDirectory, "public", "generated-images");
-const servedGeneratedImagesDirectory = path.join(rootDirectory, "generated-images");
+const dataDirectory = path.join(rootDirectory, "private-data", "field-notes");
+const generatedImagesDirectory = path.join(rootDirectory, "private-assets", "generated-images");
 const promptFields = ["插圖_prompt", "imagePrompt", "illustrationPrompt", "prompt"];
 const imageFields = ["image", "imageUrl", "image_url", "圖片", "圖片路徑"];
 const promptSuffix = "No text, no logo, no watermark, no UI elements, no captions.";
@@ -75,17 +74,10 @@ const getLocalImageTarget = (entry, date, index) => {
 
   const relativeImagePath = requestedPath.slice("generated-images/".length);
   const publicPath = `/generated-images/${relativeImagePath}`;
-  const outputPath = path.resolve(publicGeneratedImagesDirectory, relativeImagePath);
-  const servedPath = path.resolve(servedGeneratedImagesDirectory, relativeImagePath);
-
-  for (const [basePath, targetPath] of [
-    [publicGeneratedImagesDirectory, outputPath],
-    [servedGeneratedImagesDirectory, servedPath],
-  ]) {
-    const relativePath = path.relative(basePath, targetPath);
-    if (relativePath.startsWith("..") || path.isAbsolute(relativePath)) {
-      throw new Error(`圖片路徑超出專案範圍：${publicPath}`);
-    }
+  const outputPath = path.resolve(generatedImagesDirectory, relativeImagePath);
+  const relativePath = path.relative(generatedImagesDirectory, outputPath);
+  if (relativePath.startsWith("..") || path.isAbsolute(relativePath)) {
+    throw new Error(`圖片路徑超出專案範圍：${publicPath}`);
   }
 
   const extension = path.extname(outputPath).toLowerCase();
@@ -93,7 +85,7 @@ const getLocalImageTarget = (entry, date, index) => {
     throw new Error(`不支援的圖片格式：${publicPath}`);
   }
 
-  return { external: false, publicPath, outputPath, servedPath };
+  return { external: false, publicPath, outputPath };
 };
 
 const getOutputFormat = (outputPath) => {
@@ -128,7 +120,7 @@ const readDailyFiles = async () => {
   return records;
 };
 
-const requestImage = async (prompt, outputPath, servedPath) => {
+const requestImage = async (prompt, outputPath) => {
   const response = await fetch("https://api.openai.com/v1/images/generations", {
     method: "POST",
     headers: {
@@ -153,11 +145,8 @@ const requestImage = async (prompt, outputPath, servedPath) => {
   if (!base64Image) throw new Error("OpenAI API 回應中沒有 b64_json 圖片資料。");
 
   const imageBuffer = Buffer.from(base64Image, "base64");
-  await Promise.all([
-    mkdir(path.dirname(outputPath), { recursive: true }),
-    mkdir(path.dirname(servedPath), { recursive: true }),
-  ]);
-  await Promise.all([writeFile(outputPath, imageBuffer), writeFile(servedPath, imageBuffer)]);
+  await mkdir(path.dirname(outputPath), { recursive: true });
+  await writeFile(outputPath, imageBuffer);
 };
 
 const main = async () => {
@@ -169,10 +158,7 @@ const main = async () => {
     return;
   }
 
-  await Promise.all([
-    mkdir(publicGeneratedImagesDirectory, { recursive: true }),
-    mkdir(servedGeneratedImagesDirectory, { recursive: true }),
-  ]);
+  await mkdir(generatedImagesDirectory, { recursive: true });
   const maxImagesPerRun = getMaxImagesPerRun();
   console.log(`[config] 本次最多呼叫 Images API ${maxImagesPerRun} 次。`);
   const records = await readDailyFiles();
@@ -208,11 +194,6 @@ const main = async () => {
       }
 
       if (existsSync(target.outputPath)) {
-        if (!existsSync(target.servedPath)) {
-          const imageBuffer = await readFile(target.outputPath);
-          await mkdir(path.dirname(target.servedPath), { recursive: true });
-          await writeFile(target.servedPath, imageBuffer);
-        }
         console.log(`[skip] ${label} 圖片已存在：${target.publicPath}`);
         summary.skipped += 1;
         continue;
@@ -244,7 +225,7 @@ const main = async () => {
       console.log(
         `[generate ${summary.apiCalls}/${maxImagesPerRun}] ${label} -> ${target.publicPath}`
       );
-      await requestImage(prompt, target.outputPath, target.servedPath);
+      await requestImage(prompt, target.outputPath);
       summary.generated += 1;
     } catch (error) {
       console.error(`[failed] ${fileName} / ${label}: ${error.message}`);

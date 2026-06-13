@@ -7,8 +7,22 @@
       name="description"
       content="台語感官田調 archive，收集詞彙、聲音、氣味、光線與生活記憶。"
     />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; upgrade-insecure-requests"
+    />
     <title>台語感官田調 archive</title>
-    <link rel="stylesheet" href="style.css?v=20260611" />
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="__HERO_SRC__"
+      imagesrcset="__HERO_SRCSET__"
+      imagesizes="(max-width: 1392px) calc(100vw - 32px), 1360px"
+      fetchpriority="high"
+    />
+    <link rel="stylesheet" href="__APP_CSS__" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -33,7 +47,22 @@
     <main id="top">
       <section class="hero magazine-cover" aria-labelledby="hero-title">
         <figure class="hero-cover" aria-label="台灣街景插畫主視覺">
-          <img src="assets/taiwan-street-illustration.png" alt="清亮天空下的台灣街景插畫，橫向排列老公寓、陽台、鐵窗花、磁磚外牆、植栽、冷氣機、曬衣架與水塔。" />
+          <picture>
+            <source
+              type="image/webp"
+              srcset="__HERO_SRCSET__"
+              sizes="(max-width: 1392px) calc(100vw - 32px), 1360px"
+            />
+            <img
+              src="__HERO_FALLBACK__"
+              width="__HERO_WIDTH__"
+              height="__HERO_HEIGHT__"
+              alt="清亮天空下的台灣街景插畫，橫向排列老公寓、陽台、鐵窗花、磁磚外牆、植栽、冷氣機、曬衣架與水塔。"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </picture>
         </figure>
 
         <div class="hero-copy-panel">
@@ -116,6 +145,6 @@
       <a href="#top">回到上面</a>
     </footer>
 
-    <script src="script.js?v=20260611-2"></script>
+    <script src="__APP_JS__" defer></script>
   </body>
 </html>

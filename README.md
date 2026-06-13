@@ -1,75 +1,80 @@
 # 台語感官田調網站
 
-這是純 HTML、CSS、JavaScript 網站。預設採用「手動圖片模式」，網站本身
-不需要 OpenAI API key，也不需要先執行自動產圖。
+純 HTML、CSS、JavaScript 的 GitHub Pages 網站。原始資料與高解析插圖保留在本機
+私有目錄；Git 只保存去敏後的公開資料與最佳化圖片。
 
-## 每日資料
+## 資料與部署邊界
 
-每日 JSON 放在 `data/field-notes/`：
+| 目錄 | 用途 | Git / Pages |
+| --- | --- | --- |
+| `private-data/field-notes/` | 每日原始 JSON、prompt、內部備註 | 不提交、不部署 |
+| `private-assets/generated-images/` | 高解析 PNG 原圖 | 不提交、不部署 |
+| `public/data/` | 去敏後、分頁且 hash 命名的公開 JSON | 提交、部署 |
+| `public/assets/images/` | responsive WebP 與高品質 JPEG fallback | 提交、部署 |
+| `dist/` | allowlist 組成的最終 Pages artifact | 不提交，由 Actions 部署 |
 
-```json
-{
-  "date": "2026-06-11",
-  "entries": [
-    {
-      "id": "2026-06-11-100000",
-      "詞目": "範例",
-      "插圖_prompt": "既有的插圖 prompt"
-    }
-  ]
-}
-```
+`public/data/` 只包含網站畫面實際使用的欄位：詞目、台羅、公開釋義、田調筆記、
+公開分類、教育部辭典連結、圖片 alt 與最佳化圖片路徑。它不包含
+`插圖_prompt`、`社群來源`、內部脈絡或完整原始 JSON。
 
-- `id`：每筆資料的穩定識別，也是預設圖片檔名。
-- `插圖_prompt`：手動或選用自動產圖時使用的既有 prompt。
-- `image`：選填。沒有此欄位時，前端自動使用
-  `generated-images/{id}.png`。
-- 圖片 alt text 優先使用 `alt`、`title`、`description`，最後使用
-  `詞目`。
+公開網站上實際顯示的文字與圖片仍然可以被下載或爬取。靜態網站無法提供真正的
+DRM；hash 檔名、分頁與 robots 只能降低批次列舉及一般搜尋引擎索引風險。
 
-圖片不存在或載入失敗時，卡片會顯示「尚未加入圖片」placeholder，不影響
-其他內容或網站操作。
+## 每日更新流程
 
-## 手動圖片流程
-
-每天新增 JSON 後：
-
-1. 複製該筆 JSON 的 `插圖_prompt`。
-2. 到 ChatGPT 手動生圖。
-3. 下載圖片。
-4. 將圖片改名為 `{id}.png`，例如
-   `2026-06-11-100000.png`。
-5. 將圖片放進 `public/generated-images/`。
-6. 執行：
+1. 在 `private-data/field-notes/` 新增每日 JSON。
+2. 圖片採手動模式時，複製 JSON 的 `插圖_prompt` 到 ChatGPT 生圖。
+3. 將高解析圖片命名為 `{id}.png`，放到
+   `private-assets/generated-images/`。
+4. 執行：
 
 ```bash
+npm install
 npm run build
 ```
 
-`npm run build` 會更新 `data/field-notes/index.json`，並把
-`public/generated-images/` 同步到網站實際提供的 `generated-images/`。
-前端會以相對路徑 `generated-images/{id}.png` 讀取圖片。這樣在 GitHub
-Pages 的 `/github-website/` 子路徑部署時，圖片會正確解析為
-`/github-website/generated-images/{id}.png`。
+`npm run build` 會：
 
-若圖片需要重做，替換或刪除
-`public/generated-images/{id}.png`，再執行 `npm run build`。
+1. 產生 480、768、1200、1600px 的高品質 WebP。
+2. 產生高品質 JPEG fallback。
+3. 使用內容 hash 命名圖片，避免瀏覽器或 CDN 顯示舊圖。
+4. 從私有 JSON 產生每頁 9 筆的最小公開資料。
+5. 建立 `dist/` 並掃描 prompt、secret、私鑰與禁止部署的原始素材。
+
+本機預覽請以靜態伺服器提供 `dist/`，例如：
+
+```bash
+python3 -m http.server 8000 --directory dist
+```
 
 ## 選用：OpenAI API 自動產圖
 
-`scripts/generate-images.js` 與以下指令是選用功能：
-
 ```bash
-npm run generate-images
+npm run generate-images -- --id-prefix=2026-06-12
 ```
 
-只有使用自動產圖時才需要 OpenAI API key。可在專案根目錄建立不會被 Git
-追蹤的 `.env`：
+此功能只會將原圖寫入 ignored 的 `private-assets/generated-images/`，不會直接把
+API 產物放進 Pages。API key 僅能存在根目錄 `.env`：
 
 ```text
 OPENAI_API_KEY=your_api_key_here
+MAX_IMAGES_PER_RUN=3
 ```
 
-手動圖片模式不需要建立 `.env`，也不需要執行 `npm run generate-images`。
-API key、ChatGPT 登入資訊與任何 token 都不可寫入 JSON、前端程式或提交到
-Git。
+完成後仍需執行 `npm run build`。
+
+## GitHub Pages
+
+`.github/workflows/deploy-pages.yml` 只部署 `dist/`。首次切換後，請在 repository
+的 **Settings → Pages → Build and deployment → Source** 選擇
+**GitHub Actions**。Actions 不使用 OpenAI key，也不需要任何應用程式 secret。
+
+## 已知限制
+
+- 此 repository 目前是 public。已提交過的原始 JSON、prompt 與 PNG 仍存在 Git
+  歷史中；普通刪檔不會清除歷史。若內容屬敏感資料，需另行重寫 Git 歷史並通知
+  所有 clone 重新取得，或改用新的乾淨 repository。
+- 若希望未來的原始資料也不出現在 public repo，請維持 `private-data/` 與
+  `private-assets/` 不受 Git 追蹤，或把來源移到獨立 private repo。
+- Cloudflare 規則需要自有網域；設定建議見
+  [`docs/cloudflare-recommendations.md`](docs/cloudflare-recommendations.md)。

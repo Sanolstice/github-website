@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /data/
+Disallow: /source-data/
+Disallow: /private-data/
+Disallow: /raw/
+Disallow: /prompts/
+
+# robots.txt is an indexing preference, not access control.

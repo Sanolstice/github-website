@@ -1,5 +1,22 @@
 .DS_Store
+**/* 2.*
 .env
 .env.*
 !.env.example
 node_modules/
+dist/
+.build/
+
+# Private source data and high-resolution originals never belong in Pages or Git.
+private-data/
+private-assets/
+source-data/
+raw/
+prompts/
+
+# Editable or uncompressed source artwork.
+*.ai
+*.eps
+*.psd
+*.raw
+*.sketch
