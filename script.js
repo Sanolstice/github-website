@@ -6,7 +6,21 @@ const notesGrid = document.querySelector("[data-notes-grid]");
 const paginationControls = [...document.querySelectorAll("[data-pagination]")];
 
 const publicBase = document.querySelector('meta[name="data-base"]')?.content || "";
-const dataManifestPath = `${publicBase}data/manifest.json`;
+const resolvePublicPath = (assetPath) => {
+  if (!assetPath || /^(?:[a-z]+:)?\/\//i.test(assetPath) || assetPath.startsWith("data:")) {
+    return assetPath;
+  }
+  return `${publicBase}${assetPath.replace(/^\/+/, "")}`;
+};
+const resolvePublicSrcset = (srcset) =>
+  srcset
+    .split(",")
+    .map((candidate) => {
+      const [assetPath, descriptor] = candidate.trim().split(/\s+/, 2);
+      return `${resolvePublicPath(assetPath)}${descriptor ? ` ${descriptor}` : ""}`;
+    })
+    .join(", ");
+const dataManifestPath = resolvePublicPath("data/manifest.json");
 const pageCache = new Map();
 let dataManifest = { pages: [], pageSize: 9, totalItems: 0 };
 let currentPage = 0;
@@ -131,14 +145,14 @@ const createNoteImage = (note) => {
   const picture = document.createElement("picture");
   const source = document.createElement("source");
   source.type = "image/webp";
-  source.srcset = note.image.srcset;
+  source.srcset = resolvePublicSrcset(note.image.srcset);
   source.sizes =
     "(max-width: 720px) calc(100vw - 70px), " +
     "(max-width: 980px) calc(50vw - 54px), 370px";
 
   const image = document.createElement("img");
   image.className = "note-image";
-  image.src = note.image.fallback;
+  image.src = resolvePublicPath(note.image.fallback);
   image.alt = note.imageAlt || `${note.term}田調插圖`;
   image.width = note.image.width;
   image.height = note.image.height;
@@ -216,7 +230,8 @@ const loadPage = async (pageIndex) => {
   const pagePath = dataManifest.pages[pageIndex];
   if (!pagePath) return [];
 
-  const response = await fetch(pagePath, { cache: "force-cache" });
+  const resolvedPagePath = resolvePublicPath(pagePath);
+  const response = await fetch(resolvedPagePath, { cache: "force-cache" });
   if (!response.ok) throw new Error(`Unable to load ${pagePath}`);
   const payload = await response.json();
   const items = Array.isArray(payload?.items) ? payload.items : [];
