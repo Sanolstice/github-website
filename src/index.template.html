@@ -7,7 +7,7 @@
       name="description"
       content="台語感官田調 archive，收集詞彙、聲音、氣味、光線與生活記憶。"
     />
-    <meta name="data-base" content="public/" />
+    <meta name="data-base" content="__PUBLIC_BASE__" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta
       http-equiv="Content-Security-Policy"
@@ -18,12 +18,12 @@
       rel="preload"
       as="image"
       type="image/webp"
-      href="public/assets/images/862c569744244227-1600.webp"
-      imagesrcset="public/assets/images/862c569744244227-480.webp 480w, public/assets/images/862c569744244227-768.webp 768w, public/assets/images/862c569744244227-1200.webp 1200w, public/assets/images/862c569744244227-1600.webp 1600w"
+      href="__HERO_SRC__"
+      imagesrcset="__HERO_SRCSET__"
       imagesizes="(max-width: 1392px) calc(100vw - 32px), 1360px"
       fetchpriority="high"
     />
-    <link rel="stylesheet" href="style.css?v=a2d6e5f565773e8c" />
+    <link rel="stylesheet" href="__APP_CSS__" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -51,13 +51,13 @@
           <picture>
             <source
               type="image/webp"
-              srcset="public/assets/images/862c569744244227-480.webp 480w, public/assets/images/862c569744244227-768.webp 768w, public/assets/images/862c569744244227-1200.webp 1200w, public/assets/images/862c569744244227-1600.webp 1600w"
+              srcset="__HERO_SRCSET__"
               sizes="(max-width: 1392px) calc(100vw - 32px), 1360px"
             />
             <img
-              src="public/assets/images/862c569744244227-1600.jpg"
-              width="1600"
-              height="854"
+              src="__HERO_FALLBACK__"
+              width="__HERO_WIDTH__"
+              height="__HERO_HEIGHT__"
               alt="清亮天空下的台灣街景插畫，橫向排列老公寓、陽台、鐵窗花、磁磚外牆、植栽、冷氣機、曬衣架與水塔。"
               loading="eager"
               decoding="async"
@@ -146,6 +146,6 @@
       <a href="#top">回到上面</a>
     </footer>
 
-    <script src="script.js?v=5bc37d656e8909ef" defer></script>
+    <script src="__APP_JS__" defer></script>
   </body>
 </html>

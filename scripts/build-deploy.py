@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_DIR = ROOT / "public"
 DIST_DIR = ROOT / "dist"
-INDEX_TEMPLATE = ROOT / "index.html"
+INDEX_TEMPLATE = ROOT / "src" / "index.template.html"
 SCRIPT_PATH = ROOT / "script.js"
 STYLE_PATH = ROOT / "style.css"
 HERO_MANIFEST_PATH = PUBLIC_DIR / "assets" / "hero-manifest.json"
@@ -96,6 +96,7 @@ def build_index() -> None:
     replacements = {
         "__APP_CSS__": f"assets/{style_name}",
         "__APP_JS__": f"assets/{script_name}",
+        "__PUBLIC_BASE__": "",
         "__HERO_FALLBACK__": hero["fallback"],
         "__HERO_SRC__": hero["src"],
         "__HERO_SRCSET__": hero["srcset"],

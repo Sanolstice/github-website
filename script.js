@@ -5,7 +5,8 @@ const sections = [...document.querySelectorAll("main section[id]")];
 const notesGrid = document.querySelector("[data-notes-grid]");
 const paginationControls = [...document.querySelectorAll("[data-pagination]")];
 
-const dataManifestPath = "data/manifest.json";
+const publicBase = document.querySelector('meta[name="data-base"]')?.content || "";
+const dataManifestPath = `${publicBase}data/manifest.json`;
 const pageCache = new Map();
 let dataManifest = { pages: [], pageSize: 9, totalItems: 0 };
 let currentPage = 0;

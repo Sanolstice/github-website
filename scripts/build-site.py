@@ -17,6 +17,7 @@ def main() -> None:
     run("node", str(ROOT / "scripts" / "optimize-images.js"))
     run(sys.executable, str(ROOT / "scripts" / "build-public-data.py"))
     run(sys.executable, str(ROOT / "scripts" / "build-deploy.py"))
+    run(sys.executable, str(ROOT / "scripts" / "build-branch-preview.py"))
 
 
 if __name__ == "__main__":
